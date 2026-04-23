@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Specialized Investment Funds · AnvithBizCap — The regulated middle ground between MF and PMS</title>
+<meta name="description" content="Specialized Investment Funds (SIFs) — SEBI's regulated asset class introduced in 2025 for affluent Indian investors. Long-short equity, debt and hybrid strategies with derivative latitude. ₹10 lakh minimum per PAN per AMC. Distributed by AnvithBizCap — NISM Series-XIII certified, AMFI-registered." />
+<meta name="theme-color" content="#0B1220" />
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css" />
+<style>
+  /* Page-specific — dark ticker variant */
+  body.sif-body { background: #0B1220; color: var(--text-invert); }
+  body.sif-body .ticker { border-bottom-color: rgba(247,243,234,0.12); }
+  body.sif-body .nav { background: rgba(11,18,32,0.82); border-bottom-color: rgba(247,243,234,0.08); }
+  body.sif-body .nav.is-scrolled { background: rgba(11,18,32,0.95); border-bottom-color: rgba(247,243,234,0.14); }
+  body.sif-body .brand { color: var(--text-invert); }
+  body.sif-body .brand .mark svg rect { stroke: #E5DFCD; }
+  body.sif-body .brand-meta .tag { color: rgba(247,243,234,0.55); }
+  body.sif-body .nav-links a, body.sif-body .nav-links button.nav-top { color: rgba(247,243,234,0.82); }
+  body.sif-body .nav-links a:hover, body.sif-body .nav-links button.nav-top:hover { color: var(--gold-2); }
+  body.sif-body .btn-ghost { color: var(--text-invert); border-color: rgba(247,243,234,0.22); }
+  body.sif-body .btn-ghost:hover { border-color: var(--gold-2); color: var(--gold-2); }
+  body.sif-body .mega { background: #172033; border-color: rgba(247,243,234,0.14); }
+  body.sif-body .mega-label { color: var(--text-invert); }
+  body.sif-body .mega-sub { color: rgba(247,243,234,0.6); }
+  body.sif-body .mega-item:hover { background: rgba(247,243,234,0.04); }
+  body.sif-body .mega-icon { background: rgba(247,243,234,0.06); color: var(--gold-2); }
+  body.sif-body .mega-item.is-premium .mega-icon { background: rgba(180,138,55,0.14); }
+  body.sif-body .mobile-toggle { color: var(--text-invert); border-color: rgba(247,243,234,0.2); }
+  body.sif-body section { color: var(--text-invert); }
+  body.sif-body h1, body.sif-body h2, body.sif-body h3, body.sif-body h4 { color: var(--text-invert); }
+  body.sif-body .page-head { background: transparent; }
+  body.sif-body .page-head::before { display: none; }
+  body.sif-body .crumbs { color: rgba(247,243,234,0.5); }
+  body.sif-body .crumbs a { color: rgba(247,243,234,0.75); }
+  body.sif-body .crumbs a:hover { color: var(--gold-2); }
+  body.sif-body .crumbs span[style] { color: var(--gold-2) !important; }
+  body.sif-body .lede, body.sif-body .sub, body.sif-body .text-muted { color: rgba(247,243,234,0.72); }
+  body.sif-body .text-soft { color: rgba(247,243,234,0.5); }
+  body.sif-body .product-hero-card { background: rgba(247,243,234,0.03); border-color: rgba(247,243,234,0.14); }
+  body.sif-body .product-hero-card h4 { color: rgba(247,243,234,0.5); }
+  body.sif-body .product-hero-card .hero-metric { border-color: rgba(247,243,234,0.12); }
+  body.sif-body .product-hero-card .hero-metric .k { color: rgba(247,243,234,0.55); }
+  body.sif-body .product-hero-card .hero-metric .v { color: var(--gold-2); }
+  body.sif-body .card { background: rgba(247,243,234,0.03); border-color: rgba(247,243,234,0.12); color: var(--text-invert); }
+  body.sif-body .card:hover { border-color: var(--gold); }
+  body.sif-body .faq details { border-color: rgba(247,243,234,0.12); }
+  body.sif-body .faq summary { color: var(--text-invert); }
+  body.sif-body .faq summary .plus::before, body.sif-body .faq summary .plus::after { background: var(--gold-2); }
+  body.sif-body .faq .ans { color: rgba(247,243,234,0.78); }
+  body.sif-body .compare-table { background: rgba(247,243,234,0.03); border-color: rgba(247,243,234,0.12); color: var(--text-invert); }
+  body.sif-body .compare-table thead th { background: rgba(247,243,234,0.04); color: rgba(247,243,234,0.6); }
+  body.sif-body .compare-table th, body.sif-body .compare-table td { border-color: rgba(247,243,234,0.1); }
+  body.sif-body .compare-table tbody td:first-child { color: rgba(247,243,234,0.5); }
+  body.sif-body .compare-table td strong { color: var(--text-invert); }
+  body.sif-body footer { background: #05080F; }
+  body.sif-body .rule { background: rgba(247,243,234,0.15); }
+  body.sif-body .fact-row { border-color: rgba(247,243,234,0.1); }
+  body.sif-body .fact-row dt { color: rgba(247,243,234,0.5); }
+  body.sif-body .fact-row dd { color: var(--text-invert); }
+  body.sif-body .chip { background: rgba(247,243,234,0.05); color: var(--text-invert); border-color: rgba(247,243,234,0.18); }
+  body.sif-body .section-bone2 { background: rgba(247,243,234,0.02); }
+
+  /* Threshold lockgate */
+  .threshold {
+    background: linear-gradient(135deg, #0E1623 0%, #1A2237 60%, #2A1F0F 100%);
+    border: 1px solid rgba(180,138,55,0.3);
+    border-radius: var(--r-lg);
+    padding: var(--s-7);
+    position: relative;
+    overflow: hidden;
+  }
+  .threshold::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(400px 300px at 100% 0%, rgba(201,168,90,0.18), transparent 60%),
+      radial-gradient(300px 200px at 0% 100%, rgba(201,168,90,0.1), transparent 60%);
+    pointer-events: none;
+  }
+  .threshold .th-val {
+    font-family: var(--font-display);
+    font-size: clamp(72px, 9vw, 140px);
+    font-weight: 300;
+    color: var(--gold-2);
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin: var(--s-4) 0;
+  }
+</style>
+</head>
+<body class="sif-body">
+<div class="page-load" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="ticker" aria-label="Market snapshot">
+  <div class="ticker-rail">
+    <span class="ticker-item"><span class="label">SBI MAGNUM SIF</span> <span class="val">LIVE</span></span>
+    <span class="ticker-item"><span class="label">EDELWEISS ALTIVA SIF</span> <span class="val">LIVE</span></span>
+    <span class="ticker-item"><span class="label">MIRAE ASSET SIF</span> <span class="val">LIVE</span></span>
+    <span class="ticker-item"><span class="label">ICICI PRU iSIF</span> <span class="val">LIVE</span></span>
+    <span class="ticker-item"><span class="label">QUANT SIF</span> <span class="val">FILED</span></span>
+    <span class="ticker-item"><span class="label">PAN-LEVEL MIN</span> <span class="val">₹10,00,000</span></span>
+    <span class="ticker-item"><span class="label">DERIVATIVE LATITUDE</span> <span class="val">UP TO 25% (NON-HEDGING)</span></span>
+    <span class="ticker-item"><span class="label">DISTRIBUTOR GATE</span> <span class="val">NISM SERIES-XIII + AMFI SIF REG</span></span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="AnvithBizCap home"><span class="mark" aria-hidden="true"><svg viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="32" rx="4" stroke="currentColor" stroke-width="1.4"/><path d="M8 24 L15 10 L22 24 M10.6 19 H19.4" stroke="#B48A37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26" cy="10" r="1.6" fill="#B48A37"/></svg></span><span class="brand-meta"><span>AnvithBizCap</span><span class="tag">Wealth Distribution · est. 2019</span></span></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li class="has-mega"><button class="nav-top" aria-expanded="false">Products <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 L5 6.5 L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+          <div class="mega" role="menu">
+            <a class="mega-item" href="mutual-funds.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M9 3 L9 9 L13 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span><div><div class="mega-label">Mutual Funds</div><div class="mega-sub">Direct-equivalent access</div></div></a>
+            <a class="mega-item" href="bonds.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4" width="13" height="10" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M5.5 8 H12.5 M5.5 11 H9.5" stroke="currentColor" stroke-width="1.3"/></svg></span><div><div class="mega-label">Corporate Bonds</div><div class="mega-sub">Listed debt via OBPP partner</div></div></a>
+            <a class="mega-item" href="fixed-deposits.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 7 L9 3 L15 7 V14 H3 Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span><div><div class="mega-label">Fixed Deposits</div><div class="mega-sub">Bank &amp; NBFC deposits</div></div></a>
+            <a class="mega-item" href="sovereign-gold-bonds.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.3"/><path d="M9 5.5 V12.5 M6 9 H12" stroke="currentColor" stroke-width="1.3"/></svg></span><div><div class="mega-label">Sovereign Gold Bonds</div><div class="mega-sub">RBI issuance &amp; secondary</div></div></a>
+            <a class="mega-item is-premium" href="specialized-investment-funds.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2 L11 7 L16 7 L12 10.5 L13.5 15.5 L9 12.5 L4.5 15.5 L6 10.5 L2 7 L7 7 Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span><div><div class="mega-label">Specialized Investment Funds <span class="mega-tag">HNI</span></div><div class="mega-sub">SEBI-regulated · ₹10 L min.</div></div></a>
+            <a class="mega-item" href="corporate-treasury.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="6" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M2 9 H16" stroke="currentColor" stroke-width="1.3"/></svg></span><div><div class="mega-label">Corporate Treasury</div><div class="mega-sub">Entity onboarding, MIS</div></div></a>
+          </div>
+        </li>
+        <li><a href="tools.html">Tools</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="compliance.html">Compliance</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-ghost btn-sm hide-mobile">Client login</a>
+      <a href="contact.html#callback" class="btn btn-gold btn-sm">Request eligibility <span class="arrow">→</span></a>
+      <button class="mobile-toggle" aria-label="Open menu">Menu</button>
+    </div>
+  </div>
+</header>
+
+<aside class="mobile-drawer" aria-hidden="true" style="background: #0B1220;">
+  <div class="mobile-drawer-head"><span class="brand"><span class="mark"><svg viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="32" rx="4" stroke="#E5DFCD" stroke-width="1.4"/><path d="M8 24 L15 10 L22 24 M10.6 19 H19.4" stroke="#B48A37" stroke-width="1.6" stroke-linecap="round"/></svg></span> AnvithBizCap</span><button class="btn btn-ghost btn-sm" data-close>Close</button></div>
+  <ul style="color: var(--text-invert);"><li><a href="mutual-funds.html">Mutual Funds</a></li><li><a href="bonds.html">Corporate Bonds</a></li><li><a href="fixed-deposits.html">Fixed Deposits</a></li><li><a href="sovereign-gold-bonds.html">Sovereign Gold Bonds</a></li><li><a href="specialized-investment-funds.html">Specialized Investment Funds</a></li><li><a href="corporate-treasury.html">Corporate Treasury</a></li><li><a href="tools.html">Tools &amp; calculators</a></li><li><a href="insights.html">Insights</a></li><li><a href="about.html">About</a></li><li><a href="compliance.html">Compliance</a></li><li><a href="contact.html">Contact</a></li></ul>
+</aside>
+
+<main id="main">
+
+<section class="sif-hero">
+  <div class="container">
+    <nav class="crumbs reveal" aria-label="Breadcrumb" style="color: rgba(247,243,234,0.5);"><a href="index.html" style="color: rgba(247,243,234,0.75);">Home</a><span>/</span><a href="index.html#products" style="color: rgba(247,243,234,0.75);">Products</a><span>/</span><span style="color: var(--gold-2);">Specialized Investment Funds</span></nav>
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow reveal" style="color: var(--gold-2);">Affluent desk · NISM Series-XIII certified</span>
+        <h1 class="reveal reveal-delay-1">Specialized<br/>Investment Funds.<br/><em class="italic display-serif" style="color: var(--gold); font-weight: 300;">The middle ground India was waiting for.</em></h1>
+        <p class="lede reveal reveal-delay-2">SEBI's Specialized Investment Fund framework — effective 1 April 2025 — establishes a new regulated asset class sitting between traditional mutual funds and Portfolio Management Services. For the first time, Indian affluent investors can access long-short equity, dynamic debt and hybrid derivative strategies at a ₹10 lakh entry threshold, with the liquidity and trustee oversight of a mutual fund but the strategic latitude of an AIF.</p>
+        <div class="hero-ctas reveal reveal-delay-3">
+          <a href="contact.html#callback" class="btn btn-gold btn-lg">Begin eligibility intake <span class="arrow">→</span></a>
+          <a href="#strategies" class="btn btn-ghost btn-lg">Strategy map</a>
+        </div>
+      </div>
+      <aside class="reveal reveal-delay-2">
+        <div class="product-hero-card" style="background: rgba(247,243,234,0.03); border-color: rgba(201,168,90,0.28);">
+          <h4>Regulatory snapshot</h4>
+          <div class="hero-metric"><span class="k">SEBI framework</span><span class="v">Feb 27, 2025 circular</span></div>
+          <div class="hero-metric"><span class="k">Effective from</span><span class="v">1 April 2025</span></div>
+          <div class="hero-metric"><span class="k">Minimum investment</span><span class="v">₹10 L per PAN / AMC</span></div>
+          <div class="hero-metric"><span class="k">Strategy categories</span><span class="v">Equity · Debt · Hybrid</span></div>
+          <div class="hero-metric"><span class="k">Derivatives latitude</span><span class="v">Up to 25% (non-hedging)</span></div>
+          <div class="hero-metric"><span class="k">Disclosure cadence</span><span class="v">Bi-monthly portfolio &amp; exposure</span></div>
+          <div class="hero-metric"><span class="k">Distributor gate</span><span class="v">NISM XIII + AMFI SIF reg.</span></div>
+          <div class="hero-metric"><span class="k">Liquidity</span><span class="v">Daily / Weekly / Fortnightly</span></div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Threshold gate — visual statement -->
+<section class="section-tight">
+  <div class="container">
+    <div class="threshold reveal">
+      <div class="grid grid-2" style="grid-template-columns: 1.2fr 1fr; gap: var(--s-8); align-items: center;">
+        <div>
+          <span class="eyebrow" style="color: var(--gold-2);">PAN-level statutory threshold</span>
+          <div class="th-val">₹10,00,000</div>
+          <p style="color: rgba(247,243,234,0.76); font-size: var(--fs-300); max-width: 46ch;">
+            The minimum investment is <strong style="color: var(--gold-2);">cumulative across all SIF strategies managed by a single AMC</strong>, applied at the PAN level. It is not a per-scheme or per-transaction test. Our order-management logic enforces this gate before any subscription or redemption — a partial redemption that would drop the aggregate below ₹10 L is rejected at the intent stage.
+          </p>
+        </div>
+        <div>
+          <div style="border-left: 1px solid rgba(247,243,234,0.14); padding-left: var(--s-5);">
+            <p style="color: rgba(247,243,234,0.55); font-size: var(--fs-75); font-family: var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--s-3);">Worked illustration</p>
+            <p style="color: rgba(247,243,234,0.86); font-size: var(--fs-100); line-height: 1.65;">Priya subscribes ₹7 L to AMC-A's long-short equity SIF, then ₹4 L to AMC-A's dynamic debt SIF. Aggregate = ₹11 L ✓ compliant. Six months later she wishes to redeem ₹2 L. New aggregate = ₹9 L ✗ <strong style="color: #E08867;">rejected</strong> — she must either redeem ≥ ₹10 L (full exit from one strategy) or keep aggregate above ₹10 L. Her second AMC-B holding is unaffected — the gate is per-AMC.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- The gap SIF fills -->
+<section>
+  <div class="container">
+    <div class="section-intro reveal">
+      <div><span class="eyebrow" style="color: var(--gold-2);">The structural gap</span><h2>For years, Indian wealth had a <em class="italic" style="color: var(--gold);">missing middle</em>.</h2></div>
+      <p class="sub">Traditional mutual funds are constrained in what they can do. Portfolio Management Services start at ₹50 lakh. Alternative Investment Funds require ₹1 crore. The serious but not-ultra-wealthy Indian investor had no way to access the strategies that high-net-worth families had used globally for decades. SEBI's 2025 SIF framework fills exactly that gap.</p>
+    </div>
+
+    <div class="compare-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Dimension</th><th>Mutual Fund</th><th>Specialized Investment Fund</th><th>Portfolio Management Services</th><th>Alternative Investment Fund</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Minimum investment</td><td><strong>₹100 (SIP) / ₹5,000 lumpsum</strong></td><td><strong style="color: var(--gold-2);">₹10,00,000 per PAN / AMC</strong></td><td><strong>₹50,00,000</strong></td><td><strong>₹1,00,00,000</strong></td></tr>
+          <tr><td>Regulator</td><td>SEBI Mutual Fund Regulations</td><td><strong style="color: var(--gold-2);">SEBI MF Regulations (Chapter XVI-B)</strong></td><td>SEBI PMS Regulations</td><td>SEBI AIF Regulations</td></tr>
+          <tr><td>Short-selling</td><td>Not permitted</td><td><strong style="color: var(--gold-2);">Permitted</strong></td><td>Permitted (bespoke)</td><td>Permitted (bespoke)</td></tr>
+          <tr><td>Derivative latitude</td><td>Hedging only</td><td><strong style="color: var(--gold-2);">Up to 25% (non-hedging)</strong></td><td>Full</td><td>Full</td></tr>
+          <tr><td>Liquidity</td><td>Daily NAV</td><td><strong style="color: var(--gold-2);">Daily / Weekly / Fortnightly</strong></td><td>Monthly / Quarterly</td><td>Lock-in 3–10 years</td></tr>
+          <tr><td>Disclosure cadence</td><td>Monthly factsheet</td><td><strong style="color: var(--gold-2);">Bi-monthly portfolio + exposure</strong></td><td>Quarterly</td><td>Quarterly</td></tr>
+          <tr><td>Distributor qualification</td><td>NISM Series V-A</td><td><strong style="color: var(--gold-2);">NISM XIII + AMFI SIF registration</strong></td><td>Entity empanelment</td><td>Entity empanelment</td></tr>
+          <tr><td>Pooling structure</td><td>Unit trust</td><td><strong style="color: var(--gold-2);">Unit trust under MF Regulations</strong></td><td>Individual portfolio</td><td>Unit trust / LLP</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="small text-soft mt-4 reveal"><em>Source: SEBI's Regulatory Framework for Specialized Investment Funds (Feb 27, 2025 circular), MF Regulations 1996 as amended, PMS Regulations 2020, AIF Regulations 2012.</em></p>
+  </div>
+</section>
+
+<!-- Strategy shelf -->
+<section id="strategies" class="section-bone2">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div><span class="eyebrow" style="color: var(--gold-2);">Strategy map</span><h2>Seven strategy archetypes. Six launched; more in filing.</h2></div>
+      <p class="sub">SEBI permits SIFs to offer long-short and directional-derivative strategies that are not available in the mutual fund structure. Here is how we classify the active shelf, based on publicly-filed scheme information documents as of 23 April 2026.</p>
+    </div>
+
+    <div class="grid grid-3 reveal">
+      <article class="card">
+        <span class="eyebrow" style="color: var(--gold);">Equity · Directional</span>
+        <h3 class="mt-3">Long-Short Equity</h3>
+        <p class="mt-3 text-muted">Long a concentrated bullish book (35–40 stocks); short index futures or stock futures to dampen drawdown. Net equity exposure: 40–80%. Best-in-class ex-ante Sharpe of 1.2–1.5.</p>
+        <div class="rule"></div>
+        <dl style="margin: 0;">
+          <div class="fact-row"><dt>Target return</dt><dd>12–16% p.a.</dd></div>
+          <div class="fact-row"><dt>Expected drawdown</dt><dd>8–14%</dd></div>
+          <div class="fact-row"><dt>Liquidity</dt><dd>Daily</dd></div>
+        </dl>
+      </article>
+      <article class="card">
+        <span class="eyebrow" style="color: var(--gold);">Equity · Hedged</span>
+        <h3 class="mt-3">Market-Neutral Equity</h3>
+        <p class="mt-3 text-muted">Equal long and short positions. Alpha comes from stock selection, not market direction. Low correlation to Nifty. Suited to clients seeking equity alpha without equity beta exposure.</p>
+        <div class="rule"></div>
+        <dl style="margin: 0;">
+          <div class="fact-row"><dt>Target return</dt><dd>9–13% p.a.</dd></div>
+          <div class="fact-row"><dt>Expected drawdown</dt><dd>3–7%</dd></div>
+          <div class="fact-row"><dt>Liquidity</dt><dd>Weekly</dd></div>
+        </dl>
+      </article>
+      <article class="card">
+        <span class="eyebrow" style="color: var(--gold);">Debt · Active</span>
+        <h3 class="mt-3">Dynamic Credit + Rates</h3>
+        <p class="mt-3 text-muted">Active duration management via interest-rate derivatives, layered on a high-grade credit book. Can go net-short duration in rising-rate environments.</p>
+        <div class="rule"></div>
+        <dl style="margin: 0;">
+          <div class="fact-row"><dt>Target return</dt><dd>8–11% p.a.</dd></div>
+          <div class="fact-row"><dt>Expected drawdown</dt><dd>2–5%</dd></div>
+          <div class="fact-row"><dt>Liquidity</dt><dd>Daily</dd></div>
+        </dl>
+      </article>
+      <article class="card">
+        <span class="eyebrow" style="color: var(--gold);">Hybrid</span>
+        <h3 class="mt-3">Multi-Asset Volatility Harvest</h3>
+        <p class="mt-3 text-muted">Equity, debt, commodities and FX with systematic volatility-targeting overlay. Dynamically de-risks when realized vol spikes. Tail-aware allocation.</p>
+        <div class="rule"></div>
+        <dl style="margin: 0;">
+          <div class="fact-row"><dt>Target return</dt><dd>10–13% p.a.</dd></div>
+          <div class="fact-row"><dt>Expected drawdown</dt><dd>5–9%</dd></div>
+          <div class="fact-row"><dt>Liquidity</dt><dd>Weekly</dd></div>
+        </dl>
+      </article>
+      <article class="card">
+        <span class="eyebrow" style="color: var(--gold);">Equity · Concentrated</span>
+        <h3 class="mt-3">Concentrated High-Conviction</h3>
+        <p class="mt-3 text-muted">15–25 names, high active-share, top-down thematic tilts. Quarterly rebalancing with options overlay for downside protection. Closer to PMS philosophy at MF liquidity.</p>
+        <div class="rule"></div>
+        <dl style="margin: 0;">
+          <div class="fact-row"><dt>Target return</dt><dd>14–18% p.a.</dd></div>
+          <div class="fact-row"><dt>Expected drawdown</dt><dd>15–22%</dd></div>
+          <div class="fact-row"><dt>Liquidity</dt><dd>Daily</dd></div>
+        </dl>
+      </article>
+      <article class="card is-gold">
+        <span class="eyebrow" style="color: var(--gold-2);">In filing</span>
+        <h3 class="mt-3" style="color: var(--gold-2);">Global Long-Short</h3>
+        <p class="mt-3" style="color: rgba(230,210,164,0.85);">US + India pairs with currency-hedged overlay. Expected launch Q2 FY26 subject to RBI remittance approvals and AMC-specific LRS framework.</p>
+      </article>
+    </div>
+
+    <div class="warn-banner is-info mt-6 reveal" style="background: rgba(31,74,60,0.18); border-color: rgba(168,195,178,0.3); color: rgba(247,243,234,0.88);">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M11 7 V12 M11 15 V15.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <div>
+        <strong style="color: var(--gold-2);">Scheme-level recommendations happen in private.</strong>
+        Target returns and drawdowns above are archetypal ranges across the category, not projections of any specific scheme. Scheme-specific shortlists — including AMC names, AUM, track record, expense ratio and SID — are shared only under a recorded suitability assessment. This is required under AMFI's distributor code and SEBI's 2025 SIF framework.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Suitability -->
+<section>
+  <div class="container">
+    <div class="section-intro reveal">
+      <div><span class="eyebrow" style="color: var(--gold-2);">Suitability</span><h2>SIF is not automatically the right product — even for investors who qualify.</h2></div>
+      <p class="sub">Eligibility (₹10 L per PAN per AMC) is a floor, not a signal. Before proceeding, we look for six confirmations in your risk profile — and we walk away from the engagement if the picture isn't clear.</p>
+    </div>
+
+    <div class="steps reveal">
+      <div class="step">
+        <span class="n" style="color: var(--gold-2);">01</span>
+        <h4>Loss tolerance</h4>
+        <p>Comfort with 10–25% drawdowns in a 3-year window, particularly from long-short strategies during equity rallies where the short book loses.</p>
+      </div>
+      <div class="step">
+        <span class="n" style="color: var(--gold-2);">02</span>
+        <h4>Horizon</h4>
+        <p>Minimum 3-year commitment. Derivative strategies need time to realize their thesis; short-term liquidity access should be handled elsewhere.</p>
+      </div>
+      <div class="step">
+        <span class="n" style="color: var(--gold-2);">03</span>
+        <h4>Existing allocation</h4>
+        <p>A core MF book of ₹30–50 L already in place. SIF is a satellite, not a foundation. We cap SIF exposure at 20–25% of investable net worth.</p>
+      </div>
+      <div class="step">
+        <span class="n" style="color: var(--gold-2);">04</span>
+        <h4>Tax capacity</h4>
+        <p>SIFs are taxed at the underlying-asset rate — equity SIF gets equity-MF tax, debt SIF gets debt-MF tax. Short-position gains may be speculative. We model scenarios before recommending.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Onboarding -->
+<section class="section-bone2" id="onboarding">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div><span class="eyebrow" style="color: var(--gold-2);">Onboarding path</span><h2>Five steps. Typically 5–7 business days from first call to first subscription.</h2></div>
+    </div>
+
+    <div class="reveal">
+      <div style="position: relative; padding-left: 40px;">
+        <span style="position: absolute; left: 15px; top: 8px; bottom: 8px; width: 1px; background: rgba(180,138,55,0.3);"></span>
+        <div style="margin-bottom: var(--s-6); position: relative;">
+          <span style="position: absolute; left: -40px; top: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--gold); color: var(--ink); display: grid; place-items: center; font-family: var(--font-mono); font-weight: 700; font-size: 14px;">1</span>
+          <h4 style="color: var(--gold-2); font-family: var(--font-display); font-size: var(--fs-400); font-weight: 420; margin-bottom: var(--s-2);">Discovery &amp; eligibility confirmation</h4>
+          <p style="color: rgba(247,243,234,0.72);">20-minute call on goals, horizon, existing portfolio and tax bracket. We confirm you meet the ₹10 L threshold, verify PAN and existing MF / PMS / AIF holdings, and issue a written eligibility note.</p>
+        </div>
+        <div style="margin-bottom: var(--s-6); position: relative;">
+          <span style="position: absolute; left: -40px; top: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--gold); color: var(--ink); display: grid; place-items: center; font-family: var(--font-mono); font-weight: 700; font-size: 14px;">2</span>
+          <h4 style="color: var(--gold-2); font-family: var(--font-display); font-size: var(--fs-400); font-weight: 420; margin-bottom: var(--s-2);">Risk profiling (SIF-specific)</h4>
+          <p style="color: rgba(247,243,234,0.72);">A mandatory, standalone questionnaire covering derivative exposure comfort, drawdown tolerance, and concentration appetite. SEBI requires this prior to any SIF-level product recommendation. We retain a digitally-signed record.</p>
+        </div>
+        <div style="margin-bottom: var(--s-6); position: relative;">
+          <span style="position: absolute; left: -40px; top: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--gold); color: var(--ink); display: grid; place-items: center; font-family: var(--font-mono); font-weight: 700; font-size: 14px;">3</span>
+          <h4 style="color: var(--gold-2); font-family: var(--font-display); font-size: var(--fs-400); font-weight: 420; margin-bottom: var(--s-2);">Written strategy memo</h4>
+          <p style="color: rgba(247,243,234,0.72);">A 2-3 page memo mapping 1–3 eligible SIF strategies to your mandate, with scenario analysis (base / downside), expense breakdown, and tax impact. Delivered within 48 hours of the risk-profiling session.</p>
+        </div>
+        <div style="margin-bottom: var(--s-6); position: relative;">
+          <span style="position: absolute; left: -40px; top: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--gold); color: var(--ink); display: grid; place-items: center; font-family: var(--font-mono); font-weight: 700; font-size: 14px;">4</span>
+          <h4 style="color: var(--gold-2); font-family: var(--font-display); font-size: var(--fs-400); font-weight: 420; margin-bottom: var(--s-2);">Subscription execution</h4>
+          <p style="color: rgba(247,243,234,0.72);">Subscription through BSE StAR MF or the AMC's direct channel, with AnvithBizCap as the ARN of record. Funds route directly to the SIF scheme collection account. Allotment confirmation within 3 business days.</p>
+        </div>
+        <div style="position: relative;">
+          <span style="position: absolute; left: -40px; top: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--gold); color: var(--ink); display: grid; place-items: center; font-family: var(--font-mono); font-weight: 700; font-size: 14px;">5</span>
+          <h4 style="color: var(--gold-2); font-family: var(--font-display); font-size: var(--fs-400); font-weight: 420; margin-bottom: var(--s-2);">Ongoing monitoring</h4>
+          <p style="color: rgba(247,243,234,0.72);">Bi-monthly portfolio disclosures integrated into your dashboard, derivative-exposure alerts, quarterly performance review with the RM. Annual re-assessment of threshold compliance and strategy fit.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Disclosures -->
+<section>
+  <div class="container">
+    <div class="section-intro reveal">
+      <div><span class="eyebrow" style="color: var(--gold-2);">SEBI-mandated disclosures</span><h2>What SEBI requires every SIF to publish — and where to find it on our platform.</h2></div>
+    </div>
+
+    <div class="reveal">
+      <dl style="margin: 0;">
+        <div class="fact-row"><dt>Bi-monthly portfolio</dt><dd>Full holdings disclosed by the 10th of the following month, for periods ending May, Jul, Sep, Nov, Jan, Mar. Accessible on your logged-in dashboard.</dd></div>
+        <div class="fact-row"><dt>Derivative exposure</dt><dd>Real-time notional and delta exposure, broken down by long/short, gross vs. net. Updated daily.</dd></div>
+        <div class="fact-row"><dt>Portfolio turnover</dt><dd>Annualized turnover ratio, disclosed in factsheet and dashboard.</dd></div>
+        <div class="fact-row"><dt>Scenario analysis</dt><dd>Published by AMC with the factsheet: return under base / bear / bull scenarios, and impact of a 20% equity drawdown on the strategy NAV.</dd></div>
+        <div class="fact-row"><dt>Top 10 holdings</dt><dd>Disclosed at month-end. Concentration warning appears on the dashboard if any issuer exceeds 10%.</dd></div>
+        <div class="fact-row"><dt>Expense ratio</dt><dd>Published and included in your monthly consolidated statement. Performance-linked fees (if applicable) are shown separately from management fee.</dd></div>
+        <div class="fact-row"><dt>Risk disclosures</dt><dd>Standard SEBI SIF risk statement bundled with every confirmation email and on-page CTA.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-bone2" id="faq">
+  <div class="container container-narrow">
+    <div class="section-intro reveal"><div><span class="eyebrow" style="color: var(--gold-2);">Frequently asked</span><h2>Affluent desk FAQs.</h2></div></div>
+    <div class="faq reveal">
+      <details><summary>How is a SIF different from a PMS? <span class="plus" aria-hidden="true"></span></summary><div class="ans">Three material differences. First: threshold. PMS starts at ₹50 L; SIF at ₹10 L. Second: structure. PMS manages a separate bespoke portfolio in your own Demat; SIF pools investor capital in a unit-trust structure (you hold units, not securities). Third: liquidity. PMS typically has monthly redemption windows; SIF is daily or weekly. What they share is strategic latitude — long-short, derivatives, concentration. For most investors in the ₹10 L–₹50 L affluent band, SIF is the more liquid, more transparent, more regulated alternative.</div></details>
+      <details><summary>Is SIF taxation the same as mutual funds? <span class="plus" aria-hidden="true"></span></summary><div class="ans">Yes, with nuance. SIFs are regulated under the Mutual Fund Regulations (Chapter XVI-B), so the tax treatment follows the underlying-asset classification: equity SIF (65%+ equity) gets equity taxation (12.5% LTCG over ₹1.25 L), debt SIF gets slab-rate income, hybrid SIF follows its classification. Gains from derivative positions are typically treated as speculative or business income if they dominate, so we run a scenario with your tax adviser before subscription. Short-position realized losses can be set off against equity capital gains — a meaningful advantage.</div></details>
+      <details><summary>What does the ₹10 L threshold actually cap — my investment, or something else? <span class="plus" aria-hidden="true"></span></summary><div class="ans">It caps your minimum aggregate holding at a PAN level across all SIF strategies of the same AMC. You can subscribe ₹5 L to Strategy A and ₹5 L to Strategy B of AMC-X and you meet the floor. You cannot have ₹7 L only across AMC-X's SIF strategies. Our OMS validates this before every subscription and redemption; a redemption that would push aggregate below ₹10 L is rejected. The gate resets if the aggregate rises and falls within a given day due to NAV changes — it's only the user-initiated transactions that are validated.</div></details>
+      <details><summary>Can I SIP into a SIF? <span class="plus" aria-hidden="true"></span></summary><div class="ans">Yes, provided each SIP installment keeps the aggregate above the ₹10 L floor. In practice, most SIF subscriptions are lumpsum — but for investors adding to an existing holding that is already well above the threshold, SIP is permitted. Minimum SIP amounts vary by AMC, typically ₹1 L/month upwards.</div></details>
+      <details><summary>Is AnvithBizCap certified to distribute SIFs? <span class="plus" aria-hidden="true"></span></summary><div class="ans">Yes. Our designated key personnel have passed the NISM Series-XIII: Common Derivatives Certification Examination (the mandatory certification for SIF distribution). Our AMFI SIF registration was processed through CAMS and is currently active. Distribution eligibility is verifiable — we list the key-person NISM registration numbers on our <a href="compliance.html#sif" class="link-under" style="color: var(--gold-2); border-color: var(--gold-2);">compliance page</a>.</div></details>
+      <details><summary>How many SIFs should I own? <span class="plus" aria-hidden="true"></span></summary><div class="ans">Usually 1 or 2, never more than 3. SIF strategies aim for uncorrelated return streams relative to the equity index, so a second SIF of a different archetype (e.g., long-short + market-neutral, or equity + credit-rates) can diversify. Beyond three, the strategies tend to neutralize each other and you end up with a high-cost index replica. We model correlations during construction.</div></details>
+    </div>
+  </div>
+</section>
+
+<section style="background: #05080F; color: var(--text-invert); padding: clamp(80px, 10vw, 130px) 0;">
+  <div class="container">
+    <div class="row-between reveal">
+      <div style="max-width: 60ch;">
+        <span class="eyebrow" style="color: var(--gold-2);">The next step</span>
+        <h2 class="mt-3" style="color: var(--text-invert);">A private conversation. A written memo. No pitch deck.</h2>
+        <p class="mt-4" style="color: rgba(247,243,234,0.76);">The SIF engagement begins with a 45-minute discovery on your portfolio, tax residency and horizon, followed by a written strategy memo you can think on — before the first rupee moves.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: var(--s-3);">
+        <a href="contact.html#callback" class="btn btn-gold btn-lg">Request introduction <span class="arrow">→</span></a>
+        <a href="about.html" class="btn btn-ghost btn-lg" style="color: var(--text-invert); border-color: rgba(247,243,234,0.22);">About the desk</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="color: var(--text-invert);"><span class="mark"><svg viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="32" rx="4" stroke="#E5DFCD" stroke-width="1.4"/><path d="M8 24 L15 10 L22 24 M10.6 19 H19.4" stroke="#B48A37" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="brand-meta"><span>AnvithBizCap</span><span class="tag" style="color: rgba(247,243,234,0.5);">Wealth Distribution · est. 2019</span></span></div>
+        <p class="mt-4">AnvithBizCap is an <strong style="color: var(--gold-2);">AMFI-registered Mutual Fund Distributor</strong> with active NISM Series-XIII certification and AMFI SIF registration (via CAMS).</p>
+        <address style="font-style: normal; color: rgba(247,243,234,0.6); font-size: var(--fs-100); margin-top: var(--s-4);">2nd floor, Prestige Meridian II<br/>30 M.G. Road, Bengaluru 560001<br/><a href="tel:+918040000000">+91 80 4000 0000</a> · <a href="mailto:desk@anvithbizcap.in">desk@anvithbizcap.in</a></address>
+      </div>
+      <div><h5>Products</h5><ul><li><a href="mutual-funds.html">Mutual Funds</a></li><li><a href="bonds.html">Corporate Bonds</a></li><li><a href="fixed-deposits.html">Fixed Deposits</a></li><li><a href="sovereign-gold-bonds.html">Sovereign Gold Bonds</a></li><li><a href="specialized-investment-funds.html">Specialized Investment Funds</a></li><li><a href="corporate-treasury.html">Corporate Treasury</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="tools.html">Calculators</a></li><li><a href="insights.html">Reading room</a></li><li><a href="about.html">About</a></li><li><a href="compliance.html#commission">Commission disclosure</a></li></ul></div>
+      <div><h5>Compliance</h5><ul><li><a href="compliance.html">Regulatory framework</a></li><li><a href="compliance.html#sif">SIF certifications</a></li><li><a href="compliance.html#risk">Risk disclaimers</a></li><li><a href="compliance.html#grievance">Grievance &amp; ODR</a></li></ul></div>
+      <div><h5>Support</h5><ul><li><a href="contact.html">Contact desk</a></li><li><a href="contact.html#callback">Book a callback</a></li></ul></div>
+    </div>
+    <div class="footer-disclosures">
+      <p class="amfi-line">AMFI-registered Mutual Fund Distributor · ARN-187432 · EUIN E-338207 · AMFI SIF registration active (via CAMS)</p>
+      <p><strong>Specialized Investment Funds (SIFs)</strong> are a regulated asset class introduced by SEBI through the February 27, 2025 circular, effective 1 April 2025. Minimum investment is ₹10,00,000 per PAN across all SIF strategies of a single AMC. SIFs may employ derivative strategies (including short-selling) up to 25% of net assets for non-hedging purposes, and may concentrate positions in ways that ordinary mutual funds cannot. They therefore carry higher risk than standard mutual funds — including variable liquidity risk, concentration risk, and potential amplified drawdowns in adverse market conditions.</p>
+      <p>Only distributors with NISM Series-XIII certification and active AMFI SIF registration may distribute SIFs. Performance of any SIF strategy depends on the asset manager's execution and market conditions; past performance of the asset manager or of affiliated mutual fund schemes is not an indicator of future SIF performance.</p>
+    </div>
+    <div class="footer-strip"><span>© <span data-year></span> AnvithBizCap Private Limited · CIN: U66190KA2019PTC123456</span><span>Designed in Bengaluru</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mutual Funds · AnvithBizCap — Curated MF distribution via BSE StAR / RTA rails</title>
+<meta name="description" content="Mutual fund distribution by AnvithBizCap — category-wise discovery across equity, debt, hybrid and index, with SIP/STP/SWP execution through SEBI-regulated exchange rails. AMFI-registered, ARN-187432." />
+<meta name="theme-color" content="#0B1220" />
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+<div class="page-load" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="ticker" aria-label="Market snapshot">
+  <div class="ticker-rail">
+    <span class="ticker-item"><span class="label">NIFTY 50</span> <span class="val">24,812.15</span> <span class="delta up">+0.42%</span></span>
+    <span class="ticker-item"><span class="label">SENSEX</span> <span class="val">81,462.90</span> <span class="delta up">+0.31%</span></span>
+    <span class="ticker-item"><span class="label">10Y G-SEC</span> <span class="val">6.842%</span> <span class="delta down">-0.04%</span></span>
+    <span class="ticker-item"><span class="label">INR / USD</span> <span class="val">83.28</span> <span class="delta up">+0.09%</span></span>
+    <span class="ticker-item"><span class="label">GOLD 24K</span> <span class="val">₹92,180 / 10g</span> <span class="delta up">+1.12%</span></span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="AnvithBizCap home">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 34 34" fill="none">
+          <rect x="1" y="1" width="32" height="32" rx="4" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M8 24 L15 10 L22 24 M10.6 19 H19.4" stroke="#B48A37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="26" cy="10" r="1.6" fill="#B48A37"/>
+        </svg>
+      </span>
+      <span class="brand-meta">
+        <span>AnvithBizCap</span>
+        <span class="tag">Wealth Distribution · est. 2019</span>
+      </span>
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li class="has-mega">
+          <button class="nav-top" aria-expanded="false">Products <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 L5 6.5 L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+          <div class="mega" role="menu">
+            <a class="mega-item" href="mutual-funds.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M9 3 L9 9 L13 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span><div><div class="mega-label">Mutual Funds</div><div class="mega-sub">Direct-equivalent access, SIP / SWP / STP</div></div></a>
+            <a class="mega-item" href="bonds.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4" width="13" height="10" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M5.5 8 H12.5 M5.5 11 H9.5" stroke="currentColor" stroke-width="1.3"/></svg></span><div><div class="mega-label">Corporate Bonds</div><div class="mega-sub">Listed debt via registered OBPP partner</div></div></a>
+            <a class="mega-item" href="fixed-deposits.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 7 L9 3 L15 7 V14 H3 Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span><div><div class="mega-label">Fixed Deposits</div><div class="mega-sub">Bank FDs &amp; rated NBFC deposits</div></div></a>
+            <a class="mega-item" href="sovereign-gold-bonds.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.3"/><path d="M9 5.5 V12.5 M6 9 H12" stroke="currentColor" stroke-width="1.3"/></svg></span><div><div class="mega-label">Sovereign Gold Bonds</div><div class="mega-sub">RBI issuance alerts &amp; secondary-market</div></div></a>
+            <a class="mega-item is-premium" href="specialized-investment-funds.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2 L11 7 L16 7 L12 10.5 L13.5 15.5 L9 12.5 L4.5 15.5 L6 10.5 L2 7 L7 7 Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span><div><div class="mega-label">Specialized Investment Funds <span class="mega-tag">HNI</span></div><div class="mega-sub">SEBI-regulated · ₹10 L minimum</div></div></a>
+            <a class="mega-item" href="corporate-treasury.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="6" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.3"/><path d="M2 9 H16" stroke="currentColor" stroke-width="1.3"/></svg></span><div><div class="mega-label">Corporate Treasury</div><div class="mega-sub">Entity onboarding, MIS, laddering</div></div></a>
+          </div>
+        </li>
+        <li><a href="tools.html">Tools</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="compliance.html">Compliance</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-ghost btn-sm hide-mobile">Client login</a>
+      <a href="contact.html#callback" class="btn btn-primary btn-sm">Book a call <span class="arrow">→</span></a>
+      <button class="mobile-toggle" aria-label="Open menu">Menu</button>
+    </div>
+  </div>
+</header>
+
+<aside class="mobile-drawer" aria-hidden="true">
+  <div class="mobile-drawer-head">
+    <span class="brand"><span class="mark"><svg viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="32" rx="4" stroke="currentColor" stroke-width="1.4"/><path d="M8 24 L15 10 L22 24 M10.6 19 H19.4" stroke="#B48A37" stroke-width="1.6" stroke-linecap="round"/></svg></span> AnvithBizCap</span>
+    <button class="btn btn-ghost btn-sm" data-close>Close</button>
+  </div>
+  <ul>
+    <li><a href="mutual-funds.html">Mutual Funds</a></li>
+    <li><a href="bonds.html">Corporate Bonds</a></li>
+    <li><a href="fixed-deposits.html">Fixed Deposits</a></li>
+    <li><a href="sovereign-gold-bonds.html">Sovereign Gold Bonds</a></li>
+    <li><a href="specialized-investment-funds.html">Specialized Investment Funds</a></li>
+    <li><a href="corporate-treasury.html">Corporate Treasury</a></li>
+    <li><a href="tools.html">Tools &amp; calculators</a></li>
+    <li><a href="insights.html">Insights</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="compliance.html">Compliance</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</aside>
+
+<main id="main">
+
+<!-- ===================================
+     PAGE HEAD
+     =================================== -->
+<section class="page-head">
+  <div class="container">
+    <nav class="crumbs reveal" aria-label="Breadcrumb">
+      <a href="index.html">Home</a><span>/</span><a href="index.html#products">Products</a><span>/</span><span style="color: var(--ink);">Mutual Funds</span>
+    </nav>
+    <div class="page-head-grid">
+      <div>
+        <div class="kicker reveal">
+          <span class="chip is-success"><span class="dot"></span> Routing · BSE StAR MF &amp; RTA rails</span>
+          <span class="risk risk-mod"><span class="riskmeter"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span> Risk varies by category</span>
+        </div>
+        <h1 class="reveal reveal-delay-1">Mutual Funds.<br/><em class="italic display-serif text-gold">Curated, compounded, explained.</em></h1>
+        <p class="lede reveal reveal-delay-2">India's most accessible wealth instrument — and the most poorly chosen. We help you build a mutual-fund book across equity, debt, hybrid, index and international categories, matched to your horizon, tax slab and liquidity runway. Every transaction routes through BSE StAR MF or the RTA platform; AnvithBizCap never touches your money.</p>
+      </div>
+      <aside class="reveal reveal-delay-3">
+        <div class="product-hero-card">
+          <h4>At a glance</h4>
+          <div class="hero-metric"><span class="k">Categories covered</span><span class="v">Equity · Debt · Hybrid · Index · Intl</span></div>
+          <div class="hero-metric"><span class="k">Minimum SIP</span><span class="v">₹500 / month</span></div>
+          <div class="hero-metric"><span class="k">Minimum lumpsum</span><span class="v">₹5,000</span></div>
+          <div class="hero-metric"><span class="k">Ideal horizon</span><span class="v">3–15 years</span></div>
+          <div class="hero-metric"><span class="k">Exit load</span><span class="v">Scheme-specific</span></div>
+          <div class="hero-metric"><span class="k">Settlement</span><span class="v">T+1 (equity) · T+1 (debt)</span></div>
+          <div class="hero-metric"><span class="k">Tax</span><span class="v">STCG / LTCG rules apply</span></div>
+          <div style="display: flex; gap: 8px; margin-top: var(--s-5);">
+            <a href="contact.html#callback" class="btn btn-primary w-full">Start onboarding <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================
+     WHY US / SUB-NAV
+     =================================== -->
+<section class="section-tight section-paper">
+  <div class="container">
+    <div class="row-between reveal">
+      <h2 style="max-width: 22ch;">Three paths into the mutual fund universe</h2>
+      <div class="hide-mobile" style="display: flex; gap: var(--s-3);">
+        <a href="#categories" class="chip">Categories</a>
+        <a href="#how-we-select" class="chip">Selection</a>
+        <a href="#costs" class="chip">Costs &amp; commissions</a>
+        <a href="#tax" class="chip">Taxation</a>
+        <a href="#faq" class="chip">FAQs</a>
+      </div>
+    </div>
+
+    <div class="grid grid-3 mt-6 reveal">
+      <article class="card">
+        <span class="eyebrow" style="color: var(--jade);">Goal-led</span>
+        <h3 class="mt-3">Build-for-a-goal</h3>
+        <p class="mt-3 text-muted">Retirement, education, home down-payment. We reverse-solve the SIP from your target corpus and horizon, and stress-test it against drawdowns.</p>
+        <a href="tools.html#goal" class="link-under mt-4">Open goal planner →</a>
+      </article>
+      <article class="card">
+        <span class="eyebrow" style="color: var(--jade);">Tax-led</span>
+        <h3 class="mt-3">80C &amp; beyond</h3>
+        <p class="mt-3 text-muted">ELSS for 80C deduction, arbitrage for short-horizon parking, debt funds with indexation for HNI tax planning. Slab-aware recommendations.</p>
+        <a href="compliance.html#tax" class="link-under mt-4">Tax notes →</a>
+      </article>
+      <article class="card">
+        <span class="eyebrow" style="color: var(--jade);">Rebalance-led</span>
+        <h3 class="mt-3">Already invested?</h3>
+        <p class="mt-3 text-muted">Import your CAS, we map asset overlap, expense drag and category drift — and propose a switch plan with exit-load and LTCG impact.</p>
+        <a href="contact.html#review" class="link-under mt-4">Portfolio review →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================
+     CATEGORIES
+     =================================== -->
+<section id="categories">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div>
+        <span class="eyebrow">The universe</span>
+        <h2>Thirty-six categories. We screen to <em class="italic text-gold">thirty</em> recommendations.</h2>
+      </div>
+      <p class="sub">SEBI groups mutual funds into 36 defined categories. Most investors need exposure to four or five. Here is the AnvithBizCap shelf, grouped by function — not by AMC marketing.</p>
+    </div>
+
+    <div class="compare-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Function</th>
+            <th>Category</th>
+            <th>Horizon</th>
+            <th>Risk</th>
+            <th>Typical return band*</th>
+            <th>Tax</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Capital parking</td>
+            <td><strong>Liquid &amp; Overnight</strong><br/><span class="small text-soft">Emergency fund, short float</span></td>
+            <td>1 day – 3 months</td>
+            <td><span class="risk risk-low"><span class="riskmeter"><span class="on"></span><span></span><span></span><span></span><span></span></span> Low</span></td>
+            <td>5.8 – 7.1%</td>
+            <td>Slab</td>
+          </tr>
+          <tr>
+            <td>Accrual</td>
+            <td><strong>Corporate Bond &amp; Banking PSU</strong><br/><span class="small text-soft">Predictable debt returns</span></td>
+            <td>2 – 5 yrs</td>
+            <td><span class="risk risk-mod"><span class="riskmeter"><span class="on"></span><span class="on"></span><span></span><span></span><span></span></span> Low–Mod</span></td>
+            <td>6.8 – 8.2%</td>
+            <td>Slab</td>
+          </tr>
+          <tr>
+            <td>Duration play</td>
+            <td><strong>Gilt &amp; Dynamic Bond</strong><br/><span class="small text-soft">Rate-cycle driven</span></td>
+            <td>3 – 7 yrs</td>
+            <td><span class="risk risk-mod"><span class="riskmeter"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span> Moderate</span></td>
+            <td>6.5 – 10.5%</td>
+            <td>Slab</td>
+          </tr>
+          <tr>
+            <td>Hybrid core</td>
+            <td><strong>Balanced Advantage &amp; Multi-Asset</strong><br/><span class="small text-soft">All-weather allocation</span></td>
+            <td>3 – 7 yrs</td>
+            <td><span class="risk risk-mod"><span class="riskmeter"><span class="on"></span><span class="on"></span><span class="on"></span><span></span><span></span></span> Moderate</span></td>
+            <td>9 – 12%</td>
+            <td>Equity/Debt mix</td>
+          </tr>
+          <tr>
+            <td>Equity core</td>
+            <td><strong>Flexi Cap &amp; Large Cap</strong><br/><span class="small text-soft">Compounding anchor</span></td>
+            <td>5 – 15 yrs</td>
+            <td><span class="risk risk-high"><span class="riskmeter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span> High</span></td>
+            <td>11 – 14%</td>
+            <td>Equity (STCG 20% / LTCG 12.5%)</td>
+          </tr>
+          <tr>
+            <td>Equity alpha</td>
+            <td><strong>Mid Cap &amp; Small Cap</strong><br/><span class="small text-soft">Satellite exposure only</span></td>
+            <td>7 – 15 yrs</td>
+            <td><span class="risk risk-veryhigh"><span class="riskmeter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span></span> Very High</span></td>
+            <td>13 – 18%</td>
+            <td>Equity</td>
+          </tr>
+          <tr>
+            <td>Tax</td>
+            <td><strong>ELSS</strong><br/><span class="small text-soft">80C-eligible equity, 3-yr lock</span></td>
+            <td>3+ yrs</td>
+            <td><span class="risk risk-high"><span class="riskmeter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span> High</span></td>
+            <td>11 – 15%</td>
+            <td>Equity</td>
+          </tr>
+          <tr>
+            <td>Index</td>
+            <td><strong>Nifty / Sensex / Next-50</strong><br/><span class="small text-soft">Low-cost passive core</span></td>
+            <td>5 – 15 yrs</td>
+            <td><span class="risk risk-high"><span class="riskmeter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span> High</span></td>
+            <td>10 – 13%</td>
+            <td>Equity</td>
+          </tr>
+          <tr>
+            <td>International</td>
+            <td><strong>US / Global Equity feeder</strong><br/><span class="small text-soft">Currency &amp; sector diversification</span></td>
+            <td>7+ yrs</td>
+            <td><span class="risk risk-high"><span class="riskmeter"><span class="on"></span><span class="on"></span><span class="on"></span><span class="on"></span><span></span></span> High</span></td>
+            <td>10 – 14%</td>
+            <td>Debt (post-2023 amendment)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small text-soft mt-4 reveal">*Return bands are historical ranges across a 5–7 year look-back, not projections. No category of mutual fund guarantees a return. Category-specific scheme selection is shared only in a personalized, KYC-onboarded session and never on this public page, per AMFI's guidance on distributor communication.</p>
+  </div>
+</section>
+
+<!-- ===================================
+     SELECTION METHODOLOGY
+     =================================== -->
+<section id="how-we-select" class="section-bone2">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div>
+        <span class="eyebrow">Selection methodology</span>
+        <h2>Seven screens before a scheme ever reaches your shortlist.</h2>
+      </div>
+      <p class="sub">We don't rank by 1-year returns — the single most common error retail investors make. Our internal model pre-filters the eligible universe by seven durability signals, weights them, and re-runs monthly.</p>
+    </div>
+
+    <div class="steps reveal">
+      <div class="step">
+        <span class="n">Screen 01</span>
+        <h4>Vintage &amp; continuity</h4>
+        <p>Minimum 5-year track record through at least one drawdown cycle. AMC stability and fund-manager tenure.</p>
+      </div>
+      <div class="step">
+        <span class="n">Screen 02</span>
+        <h4>Rolling returns</h4>
+        <p>We look at 3-, 5- and 7-year rolling periods — not point-in-time. Consistency beats one-shot outperformance.</p>
+      </div>
+      <div class="step">
+        <span class="n">Screen 03</span>
+        <h4>Risk-adjusted</h4>
+        <p>Sortino, capture ratios, maximum drawdown. A 14% return with 40% drawdown fails the screen.</p>
+      </div>
+      <div class="step">
+        <span class="n">Screen 04</span>
+        <h4>Expense discipline</h4>
+        <p>TER relative to category median. We won't distribute schemes whose expense ratio has drifted upward without cause.</p>
+      </div>
+    </div>
+    <div class="steps reveal" style="border-top: 0; margin-top: 0;">
+      <div class="step">
+        <span class="n">Screen 05</span>
+        <h4>Portfolio hygiene</h4>
+        <p>Concentration, churn, category drift. An equity fund with 30% cash isn't an equity fund.</p>
+      </div>
+      <div class="step">
+        <span class="n">Screen 06</span>
+        <h4>Liquidity resilience</h4>
+        <p>Scheme AUM, redemption experience during stress events (Mar-2020, Oct-2018 IL&amp;FS), and credit quality in debt.</p>
+      </div>
+      <div class="step">
+        <span class="n">Screen 07</span>
+        <h4>Regulatory standing</h4>
+        <p>AMC compliance history, SEBI observations, and any material changes in investment mandate or trustee structure.</p>
+      </div>
+      <div class="step">
+        <span class="n">Output</span>
+        <h4>Shortlist, not recommendation</h4>
+        <p>A ranked universe of 30–40 schemes. Your final selection is made in conversation, with suitability captured in writing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================
+     COSTS
+     =================================== -->
+<section id="costs">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div>
+        <span class="eyebrow">Costs &amp; commission disclosure</span>
+        <h2>How AnvithBizCap gets paid — in plain arithmetic.</h2>
+      </div>
+      <p class="sub">Under the AMFI distributor code of conduct, we must publish our commission structure. We go further: we show the math, not just the policy.</p>
+    </div>
+
+    <div class="grid reveal" style="grid-template-columns: 1fr 1fr; gap: var(--s-6);">
+      <div>
+        <dl style="margin: 0;">
+          <div class="fact-row"><dt>Plan type offered</dt><dd><strong>Regular plan</strong> — trail commission structure, paid by AMC</dd></div>
+          <div class="fact-row"><dt>Distributor fee to investor</dt><dd><strong>₹0 direct</strong> — no onboarding or advisory fee</dd></div>
+          <div class="fact-row"><dt>Indirect cost (TER differential)</dt><dd>~50–100 bps over direct plan, varies by AMC &amp; category</dd></div>
+          <div class="fact-row"><dt>Trail commission received</dt><dd>0.20%–1.25% p.a. of your invested AUM, paid by AMC</dd></div>
+          <div class="fact-row"><dt>Upfront commission</dt><dd>Not paid by AMFI member AMCs (banned from 2018)</dd></div>
+          <div class="fact-row"><dt>Conflict protocol</dt><dd>No AMC has a volume-linked bonus with AnvithBizCap</dd></div>
+          <div class="fact-row"><dt>Full disclosure filing</dt><dd><a href="compliance.html#commission" class="link-under">Commission statement →</a></dd></div>
+        </dl>
+      </div>
+      <div>
+        <div class="card no-hover" style="padding: var(--s-6); background: var(--bone); border-color: var(--line-strong);">
+          <span class="eyebrow">Worked example</span>
+          <h3 class="mt-3" style="font-size: var(--fs-400);">₹10 L in a flexi-cap fund</h3>
+          <div class="rule"></div>
+          <dl style="margin: 0;">
+            <div class="fact-row"><dt>Direct plan TER</dt><dd class="mono">0.95% p.a.</dd></div>
+            <div class="fact-row"><dt>Regular plan TER</dt><dd class="mono">1.75% p.a.</dd></div>
+            <div class="fact-row"><dt>Annual TER gap</dt><dd class="mono" style="color: var(--rust);">~₹8,000 on ₹10 L</dd></div>
+            <div class="fact-row"><dt>Of which to AnvithBizCap</dt><dd class="mono">~₹6,500–7,500</dd></div>
+            <div class="fact-row"><dt>Retained by AMC</dt><dd class="mono">~₹500–1,500</dd></div>
+          </dl>
+          <p class="small mt-4" style="color: var(--text-soft);">If you prefer a direct-plan execution arrangement — paying us a transparent fixed fee for research and servicing — our affluent desk can structure that separately under a flat-fee engagement (SEBI RIA partner).</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="warn-banner mt-6 reveal">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M11 2 L21 19 H1 Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M11 9 V13 M11 16 V16.1" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <div>
+        <strong>Financial incentive does not drive recommendation.</strong>
+        Under AMFI's MFD Code of Conduct, distributors must disclose commission receipts and ensure incentives do not form the basis of scheme recommendation. We retain email audit trails of every shortlist prepared and will furnish them on request.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================
+     TAXATION
+     =================================== -->
+<section id="tax" class="section-bone2">
+  <div class="container">
+    <div class="section-intro reveal">
+      <div>
+        <span class="eyebrow">Taxation snapshot · FY 2025-26</span>
+        <h2>The tax treatment, before the return.</h2>
+      </div>
+      <p class="sub">Post the July 2024 Union Budget amendments, mutual fund taxation is simpler for equity and more punitive for several debt categories. Rates below are indicative; final treatment depends on your slab, residency and transaction type.</p>
+    </div>
+
+    <div class="compare-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Scheme type</th><th>Holding &lt; 12 months</th><th>Holding ≥ 12 months</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Equity-oriented (&gt; 65% equity)</td>
+            <td>STCG 20%</td>
+            <td>LTCG 12.5% on gains above ₹1.25 L / year</td>
+            <td>Includes ELSS, flexi-cap, index</td>
+          </tr>
+          <tr>
+            <td>Debt-oriented (post Apr-2023)</td>
+            <td>Slab rate</td>
+            <td>Slab rate (no indexation)</td>
+            <td>Treated as regular income</td>
+          </tr>
+          <tr>
+            <td>Hybrid (35–65% equity)</td>
+            <td>Slab / STCG per composition</td>
+            <td>Slab or LTCG 12.5% post-24m</td>
+            <td>Category-specific</td>
+          </tr>
+          <tr>
+            <td>International feeder</td>
+            <td>Slab rate</td>
+            <td>Slab rate</td>
+            <td>Treated as debt post-Apr-2023</td>
+          </tr>
+          <tr>
+            <td>Gold / Commodity</td>
+            <td>Slab rate</td>
+            <td>LTCG 12.5% post-24m</td>
+            <td>Post FY 2025-26 revisions</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small text-soft mt-4 reveal">Tax rates are subject to change by the Government of India through the Finance Act. TDS obligations may apply for NRIs (Section 195) and for large dividend/SWP payouts. Please consult a qualified tax adviser.</p>
+  </div>
+</section>
+
+<!-- ===================================
+     FAQ
+     =================================== -->
+<section id="faq">
+  <div class="container container-narrow">
+    <div class="section-intro reveal">
+      <div>
+        <span class="eyebrow">Common questions</span>
+        <h2>Before the call.</h2>
+      </div>
+      <p class="sub">The five questions every first-time mutual fund investor asks us, answered in the same tone we'd use on the phone.</p>
+    </div>
+
+    <div class="faq reveal">
+      <details>
+        <summary>Why do you distribute regular plans and not direct plans? <span class="plus" aria-hidden="true"></span></summary>
+        <div class="ans">Regular plans allow us to sustain a fully-staffed servicing desk — compliance, onboarding, reporting, grievance — at zero direct cost to the investor. Over a 15-year SIP, the TER differential is real and visible; whether the judgment, rebalancing and service we provide offsets it is a question every investor should answer for themselves. For investors who prefer direct-plan economics with transparent flat-fee advisory, we refer to a SEBI RIA partner.</div>
+      </details>
+      <details>
+        <summary>How does the money move — do you hold any of it? <span class="plus" aria-hidden="true"></span></summary>
+        <div class="ans">No. All subscription amounts route from your bank account directly to the AMC's scheme collection account through BSE StAR MF's clearing system or the RTA platform. Redemption proceeds credit directly to your registered bank account. AnvithBizCap never operates a pooled investor account and never collects cheques or transfers in our name.</div>
+      </details>
+      <details>
+        <summary>What KYC do I need to begin? <span class="plus" aria-hidden="true"></span></summary>
+        <div class="ans">PAN, Aadhaar (for e-KYC), a cancelled cheque or recent bank statement, and a live selfie for video-IPV. If you are already KYC-registered with a KRA (CAMS, CVL, NDML, Karvy, NSE), we can pull your status via the CKYC registry and you typically begin investing the same day. NRIs require additional documentation — passport, visa, overseas address proof, and FATCA declaration.</div>
+      </details>
+      <details>
+        <summary>Can I move an existing portfolio over to AnvithBizCap? <span class="plus" aria-hidden="true"></span></summary>
+        <div class="ans">Yes. You change the ARN of record through a simple Mutual Fund Change of Distributor (MFCOD) form, which we provide. No redemption, no tax event, no exit load — your investment continues; only the servicing distributor changes. We recommend doing this only after a portfolio review, because in some cases the existing allocation should be restructured first.</div>
+      </details>
+      <details>
+        <summary>What happens if I want to stop a SIP or exit a fund? <span class="plus" aria-hidden="true"></span></summary>
+        <div class="ans">SIP cancellations are processed online in one click through our portal; a mandate stop reaches the AMC within one clearing cycle. Redemptions settle T+1 for equity schemes, T+1 for most debt schemes, same-day for liquid. Any applicable exit load (usually 1% if held under 12 months) is disclosed before confirmation. We'll also flag any tax implication before you click redeem.</div>
+      </details>
+      <details>
+        <summary>Do you give scheme-specific recommendations on this website? <span class="plus" aria-hidden="true"></span></summary>
+        <div class="ans">No — and we won't. AMFI's distributor code prohibits scheme-specific recommendations on public channels, because a recommendation without a suitability assessment is a regulatory violation. Our public content is restricted to education. Scheme-level shortlists are shared only in a private, KYC-onboarded session with your written risk profile on record.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================
+     CTA
+     =================================== -->
+<section class="section-dark">
+  <div class="container">
+    <div class="row-between reveal" style="gap: var(--s-6);">
+      <div style="max-width: 60ch;">
+        <span class="eyebrow">Start with a portfolio review</span>
+        <h2 class="mt-3">Show us your CAS. We'll send a written note in 72 hours.</h2>
+        <p class="mt-4" style="color: rgba(247,243,234,0.78);">Upload your Consolidated Account Statement or forward it from your registered email. We'll return a one-page summary of category allocation, expense drag, overlap, and whether any change is warranted — well before the first call.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: var(--s-3);">
+        <a href="contact.html#callback" class="btn btn-gold btn-lg">Request review <span class="arrow">→</span></a>
+        <a href="tools.html" class="btn btn-ghost btn-lg" style="color: var(--text-invert); border-color: rgba(247,243,234,0.2);">Open calculators</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="color: var(--text-invert);">
+          <span class="mark"><svg viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="32" rx="4" stroke="#E5DFCD" stroke-width="1.4"/><path d="M8 24 L15 10 L22 24 M10.6 19 H19.4" stroke="#B48A37" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <span class="brand-meta"><span>AnvithBizCap</span><span class="tag" style="color: rgba(247,243,234,0.5);">Wealth Distribution · est. 2019</span></span>
+        </div>
+        <p class="mt-4">AnvithBizCap is an <strong style="color: var(--gold-2);">AMFI-registered Mutual Fund Distributor</strong>. We do not accept or hold client funds — every transaction is routed through SEBI-regulated exchanges, clearing corporations or issuer escrow.</p>
+        <address style="font-style: normal; color: rgba(247,243,234,0.6); font-size: var(--fs-100); margin-top: var(--s-4);">2nd floor, Prestige Meridian II<br/>30 M.G. Road, Bengaluru 560001<br/><a href="tel:+918040000000">+91 80 4000 0000</a> · <a href="mailto:desk@anvithbizcap.in">desk@anvithbizcap.in</a></address>
+      </div>
+      <div><h5>Products</h5><ul><li><a href="mutual-funds.html">Mutual Funds</a></li><li><a href="bonds.html">Corporate Bonds</a></li><li><a href="fixed-deposits.html">Fixed Deposits</a></li><li><a href="sovereign-gold-bonds.html">Sovereign Gold Bonds</a></li><li><a href="specialized-investment-funds.html">Specialized Investment Funds</a></li><li><a href="corporate-treasury.html">Corporate Treasury</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="tools.html">Calculators</a></li><li><a href="insights.html">Reading room</a></li><li><a href="about.html">About the firm</a></li><li><a href="compliance.html#sebi">SEBI resources</a></li><li><a href="compliance.html#commission">Commission disclosure</a></li></ul></div>
+      <div><h5>Compliance</h5><ul><li><a href="compliance.html">Regulatory framework</a></li><li><a href="compliance.html#risk">Risk disclaimers</a></li><li><a href="compliance.html#grievance">Grievance &amp; ODR</a></li><li><a href="compliance.html#dpdp">Privacy (DPDP Act)</a></li><li><a href="compliance.html#scores">SEBI SCORES</a></li><li><a href="compliance.html#cyber">Cybersecurity policy</a></li></ul></div>
+      <div><h5>Support</h5><ul><li><a href="contact.html">Contact desk</a></li><li><a href="contact.html#callback">Book a callback</a></li><li><a href="contact.html#login">Client login</a></li><li><a href="compliance.html#grievance">Raise grievance</a></li><li><a href="https://scores.sebi.gov.in" rel="noopener">SEBI SCORES ↗</a></li></ul></div>
+    </div>
+    <div class="footer-disclosures">
+      <p class="amfi-line">AMFI-registered Mutual Fund Distributor · ARN-187432 · EUIN E-338207 · Date of initial registration: 14 Aug 2019 · Current validity: 13 Aug 2027</p>
+      <p><strong>Mutual fund investments are subject to market risks, read all scheme-related documents carefully.</strong> The past performance of mutual fund schemes is not an indicator of future performance. AnvithBizCap does not provide investment advice. Information on this website is for general education and product disclosure only and must not be construed as a recommendation. Investors should consult their tax adviser and read the Scheme Information Document (SID) and Key Information Memorandum (KIM) before investing.</p>
+      <p><strong>NBFC deposits are not insured.</strong> Bank fixed deposits are covered under DICGC up to ₹5 lakh per depositor per bank. NBFC public deposits are not covered under any deposit-insurance scheme.</p>
+      <p>We never solicit payments to any personal account. Please verify our ARN and this domain before transacting. For unresolved complaints, escalate to SEBI SCORES at <a href="https://scores.sebi.gov.in" style="color: var(--gold-2);">scores.sebi.gov.in</a> or ODR at <a href="https://smartodr.in" style="color: var(--gold-2);">smartodr.in</a>.</p>
+    </div>
+    <div class="footer-strip"><span>© <span data-year></span> AnvithBizCap Private Limited · CIN: U66190KA2019PTC123456</span><span>Designed in Bengaluru · Last updated 23 April 2026</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

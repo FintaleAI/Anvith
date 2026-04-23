@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Calculators &amp; Tools · AnvithBizCap — SIP, Lumpsum, FD, SGB &amp; Goal planner</title>
+<meta name="description" content="Interactive calculators for SIP compounding, lumpsum growth, FD maturity with quarterly compounding, Sovereign Gold Bond projection, and goal-based SIP back-solving. Illustrative only — mutual fund investments are subject to market risks." />
+<meta name="theme-color" content="#0B1220" />
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/main.css" />
+<style>
+  /* Tool nav */
+  .tool-nav {
+    position: sticky;
+    top: calc(var(--nav-h) + var(--ticker-h));
+    z-index: 30;
+    background: var(--bone);
+    border-bottom: 1px solid var(--line);
+    padding: var(--s-3) 0;
+    margin-bottom: var(--s-6);
+  }
+  .tool-nav-inner {
+    display: flex;
+    gap: var(--s-2);
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+  .tool-nav a {
+    flex: 0 0 auto;
+    padding: 8px 14px;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-size: var(--fs-75);
+    font-family: var(--font-mono);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    white-space: nowrap;
+    transition: background var(--dur-fast), color var(--dur-fast), border-color var(--dur-fast);
+  }
+  .tool-nav a:hover { background: var(--ink); color: var(--text-invert); border-color: var(--ink); }
+</style>
+</head>
+<body>
+<div class="page-load" aria-hidden="true"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="ticker" aria-label="Market snapshot">
+  <div class="ticker-rail">
+    <span class="ticker-item"><span class="label">NIFTY 50</span> <span class="val">24,812.15</span> <span class="delta up">+0.42%</span></span>
+    <span class="ticker-item"><span class="label">SENSEX</span> <span class="val">81,462.90</span> <span class="delta up">+0.31%</span></span>
+    <span class="ticker-item"><span class="label">10Y G-SEC</span> <span class="val">6.842%</span> <span class="delta down">-0.04%</span></span>
+    <span class="ticker-item"><span class="label">HDFC FD 15M</span> <span class="val">7.40% p.a.</span></span>
+    <span class="ticker-item"><span class="label">BAJAJ NBFC FD 36M</span> <span class="val">8.25% p.a.</span></span>
+    <span class="ticker-item"><span class="label">GOLD 24K</span> <span class="val">₹92,180 / 10g</span></span>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="index.html" class="brand" aria-label="AnvithBizCap home"><span class="mark" aria-hidden="true"><svg viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="32" rx="4" stroke="currentColor" stroke-width="1.4"/><path d="M8 24 L15 10 L22 24 M10.6 19 H19.4" stroke="#B48A37" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="26" cy="10" r="1.6" fill="#B48A37"/></svg></span><span class="brand-meta"><span>AnvithBizCap</span><span class="tag">Wealth Distribution · est. 2019</span></span></a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li class="has-mega"><button class="nav-top" aria-expanded="false">Products <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5 L5 6.5 L8 3.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></button>
+          <div class="mega" role="menu">
+            <a class="mega-item" href="mutual-funds.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="6" stroke="currentColor" stroke-width="1.3"/><path d="M9 3 L9 9 L13 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg></span><div><div class="mega-label">Mutual Funds</div></div></a>
+            <a class="mega-item" href="bonds.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2.5" y="4" width="13" height="10" rx="1" stroke="currentColor" stroke-width="1.3"/></svg></span><div><div class="mega-label">Corporate Bonds</div></div></a>
+            <a class="mega-item" href="fixed-deposits.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3 7 L9 3 L15 7 V14 H3 Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span><div><div class="mega-label">Fixed Deposits</div></div></a>
+            <a class="mega-item" href="sovereign-gold-bonds.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="5.5" stroke="currentColor" stroke-width="1.3"/></svg></span><div><div class="mega-label">Sovereign Gold Bonds</div></div></a>
+            <a class="mega-item is-premium" href="specialized-investment-funds.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2 L11 7 L16 7 L12 10.5 L13.5 15.5 L9 12.5 L4.5 15.5 L6 10.5 L2 7 L7 7 Z" stroke="currentColor" stroke-width="1.3" stroke-linejoin="round"/></svg></span><div><div class="mega-label">Specialized Investment Funds <span class="mega-tag">HNI</span></div></div></a>
+            <a class="mega-item" href="corporate-treasury.html"><span class="mega-icon"><svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="2" y="6" width="14" height="10" rx="1" stroke="currentColor" stroke-width="1.3"/></svg></span><div><div class="mega-label">Corporate Treasury</div></div></a>
+          </div>
+        </li>
+        <li><a href="tools.html" style="color: var(--gold);">Tools</a></li>
+        <li><a href="insights.html">Insights</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="compliance.html">Compliance</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a href="contact.html" class="btn btn-ghost btn-sm hide-mobile">Client login</a>
+      <a href="contact.html#callback" class="btn btn-primary btn-sm">Book a call <span class="arrow">→</span></a>
+      <button class="mobile-toggle" aria-label="Open menu">Menu</button>
+    </div>
+  </div>
+</header>
+
+<aside class="mobile-drawer" aria-hidden="true">
+  <div class="mobile-drawer-head"><span class="brand"><span class="mark"><svg viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="32" rx="4" stroke="currentColor" stroke-width="1.4"/><path d="M8 24 L15 10 L22 24 M10.6 19 H19.4" stroke="#B48A37" stroke-width="1.6" stroke-linecap="round"/></svg></span> AnvithBizCap</span><button class="btn btn-ghost btn-sm" data-close>Close</button></div>
+  <ul><li><a href="mutual-funds.html">Mutual Funds</a></li><li><a href="bonds.html">Corporate Bonds</a></li><li><a href="fixed-deposits.html">Fixed Deposits</a></li><li><a href="sovereign-gold-bonds.html">Sovereign Gold Bonds</a></li><li><a href="specialized-investment-funds.html">Specialized Investment Funds</a></li><li><a href="corporate-treasury.html">Corporate Treasury</a></li><li><a href="tools.html">Tools &amp; calculators</a></li><li><a href="insights.html">Insights</a></li><li><a href="about.html">About</a></li><li><a href="compliance.html">Compliance</a></li><li><a href="contact.html">Contact</a></li></ul>
+</aside>
+
+<main id="main">
+
+<section class="page-head" style="padding-bottom: var(--s-6);">
+  <div class="container">
+    <nav class="crumbs reveal"><a href="index.html">Home</a><span>/</span><span style="color: var(--ink);">Tools &amp; Calculators</span></nav>
+    <div class="page-head-grid">
+      <div>
+        <div class="kicker reveal"><span class="chip"><span class="dot"></span> Interactive · 5 calculators</span></div>
+        <h1 class="reveal reveal-delay-1">Calculators.<br/><em class="italic display-serif text-gold">Numbers you can argue with.</em></h1>
+        <p class="lede reveal reveal-delay-2">Every serious allocation decision should begin with a projection. These calculators run on the same formulae AMCs, banks and issuers use internally — SIP compounding, FD quarterly accrual, goal-based back-solving. They are illustrative, not advice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tool nav -->
+<div class="tool-nav">
+  <div class="container">
+    <div class="tool-nav-inner">
+      <a href="#sip">SIP calculator</a>
+      <a href="#lumpsum">Lumpsum growth</a>
+      <a href="#fd">FD maturity</a>
+      <a href="#goal">Goal planner</a>
+      <a href="#sgb">SGB projection</a>
+      <a href="#compare">Regular vs Direct</a>
+    </div>
+  </div>
+</div>
+
+<!-- SIP Calculator -->
+<section id="sip" style="padding-top: var(--s-5);">
+  <div class="container">
+    <div class="section-intro reveal" style="margin-bottom: var(--s-5);">
+      <div>
+        <span class="eyebrow">01 · Mutual funds</span>
+        <h2>SIP Calculator</h2>
+      </div>
+      <p class="sub">See what a monthly SIP compounds to over your chosen horizon, at an assumed long-run return rate. Returns are illustrative — mutual funds do not guarantee returns.</p>
+    </div>
+
+    <div class="calc reveal" data-calc="sip">
+      <div class="calc-inputs">
+        <div class="calc-field" data-field="amount">
+          <label>Monthly SIP <span class="v">₹15,000</span></label>
+          <input type="range" min="500" max="200000" step="500" />
+        </div>
+        <div class="calc-field" data-field="years">
+          <label>Horizon <span class="v">15 yr</span></label>
+          <input type="range" min="1" max="40" step="1" />
+        </div>
+        <div class="calc-field" data-field="rate">
+          <label>Expected return (p.a.) <span class="v">12%</span></label>
+          <input type="range" min="4" max="20" step="0.5" />
+        </div>
+
+        <div class="warn-banner is-info" style="margin-top: var(--s-5);">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M11 7 V12 M11 15 V15.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div>
+            <strong>Assumed rates are not promises.</strong>
+            Long-run equity CAGR in Indian large-cap indices has historically ranged 11–14%; debt funds 6–9%. Your realized return depends on scheme selection, timing and fees.
+          </div>
+        </div>
+      </div>
+      <div class="calc-result">
+        <div class="figure">
+          <span class="l">Total invested</span>
+          <span class="v" data-out="invested">—</span>
+        </div>
+        <div class="figure">
+          <span class="l">Estimated gain</span>
+          <span class="v" data-out="gain">—</span>
+        </div>
+        <div class="figure is-primary">
+          <span class="l">Projected wealth</span>
+          <span class="v" data-out="final">—</span>
+        </div>
+
+        <div style="padding: var(--s-4); background: var(--paper); border-radius: var(--r-md); border: 1px solid var(--line);">
+          <div class="bars" style="margin-bottom: 10px;">
+            <span class="b-inv" data-bar="inv" style="width: 35%;"></span>
+            <span class="b-gain" data-bar="gain" style="width: 65%;"></span>
+          </div>
+          <div class="bar-legend">
+            <span class="b-inv">Invested</span>
+            <span class="b-gain">Gain</span>
+          </div>
+        </div>
+
+        <a href="contact.html#callback" class="btn btn-primary mt-3">Turn this into a plan <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Lumpsum -->
+<section id="lumpsum" class="section-bone2">
+  <div class="container">
+    <div class="section-intro reveal" style="margin-bottom: var(--s-5);">
+      <div><span class="eyebrow">02 · Mutual funds</span><h2>Lumpsum growth</h2></div>
+      <p class="sub">The simpler compounding scenario — a one-time investment left to compound for the full horizon.</p>
+    </div>
+
+    <div class="calc reveal" data-calc="lumpsum">
+      <div class="calc-inputs">
+        <div class="calc-field" data-field="amount"><label>Lumpsum <span class="v">₹5.0L</span></label><input type="range" min="10000" max="10000000" step="10000" /></div>
+        <div class="calc-field" data-field="years"><label>Horizon <span class="v">10 yr</span></label><input type="range" min="1" max="40" step="1" /></div>
+        <div class="calc-field" data-field="rate"><label>Expected return (p.a.) <span class="v">11%</span></label><input type="range" min="4" max="20" step="0.5" /></div>
+      </div>
+      <div class="calc-result">
+        <div class="figure"><span class="l">Principal</span><span class="v" data-out="invested">—</span></div>
+        <div class="figure"><span class="l">Estimated gain</span><span class="v" data-out="gain">—</span></div>
+        <div class="figure is-primary"><span class="l">Projected wealth</span><span class="v" data-out="final">—</span></div>
+        <div style="padding: var(--s-4); background: var(--paper); border-radius: var(--r-md); border: 1px solid var(--line);">
+          <div class="bars" style="margin-bottom: 10px;"><span class="b-inv" data-bar="inv"></span><span class="b-gain" data-bar="gain"></span></div>
+          <div class="bar-legend"><span class="b-inv">Principal</span><span class="b-gain">Gain</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FD -->
+<section id="fd">
+  <div class="container">
+    <div class="section-intro reveal" style="margin-bottom: var(--s-5);">
+      <div><span class="eyebrow">03 · Fixed income</span><h2>FD Maturity Calculator</h2></div>
+      <p class="sub">Cumulative FD with quarterly compounding — the industry-standard convention used by scheduled banks and rated NBFCs in India.</p>
+    </div>
+
+    <div class="calc reveal" data-calc="fd">
+      <div class="calc-inputs">
+        <div class="calc-field" data-field="amount"><label>Principal <span class="v">₹2.0L</span></label><input type="range" min="10000" max="10000000" step="10000" /></div>
+        <div class="calc-field" data-field="years"><label>Tenure <span class="v">3 yr</span></label><input type="range" min="1" max="10" step="1" /></div>
+        <div class="calc-field" data-field="rate"><label>Rate (p.a.) <span class="v">8.25%</span></label><input type="range" min="5" max="10" step="0.05" /></div>
+
+        <p class="small text-soft mt-5">TDS of 10% applies on interest above ₹40,000/year for banks (₹50,000 for senior citizens), ₹5,000/year for NBFC deposits. Figures shown are pre-TDS.</p>
+      </div>
+      <div class="calc-result">
+        <div class="figure"><span class="l">Principal</span><span class="v" data-out="principal">—</span></div>
+        <div class="figure"><span class="l">Interest earned</span><span class="v" data-out="interest">—</span></div>
+        <div class="figure is-primary"><span class="l">Maturity value</span><span class="v" data-out="maturity">—</span></div>
+        <div style="padding: var(--s-4); background: var(--paper); border-radius: var(--r-md); border: 1px solid var(--line);">
+          <div class="bars" style="margin-bottom: 10px;"><span class="b-inv" data-bar="inv"></span><span class="b-gain" data-bar="gain"></span></div>
+          <div class="bar-legend"><span class="b-inv">Principal</span><span class="b-gain">Interest</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Goal planner -->
+<section id="goal" class="section-bone2">
+  <div class="container">
+    <div class="section-intro reveal" style="margin-bottom: var(--s-5);">
+      <div><span class="eyebrow">04 · Planning</span><h2>Goal Planner</h2></div>
+      <p class="sub">Back-solve from your target corpus. Given a goal amount and horizon, what monthly SIP or one-time lumpsum gets you there?</p>
+    </div>
+
+    <div class="calc reveal" data-calc="goal">
+      <div class="calc-inputs">
+        <div class="calc-field" data-field="target"><label>Goal corpus <span class="v">₹50L</span></label><input type="range" min="100000" max="100000000" step="100000" /></div>
+        <div class="calc-field" data-field="years"><label>Horizon <span class="v">15 yr</span></label><input type="range" min="1" max="40" step="1" /></div>
+        <div class="calc-field" data-field="rate"><label>Expected return (p.a.) <span class="v">12%</span></label><input type="range" min="4" max="18" step="0.5" /></div>
+
+        <p class="small text-soft mt-5">For goals with a fixed date (school fees, down-payment), consider mixing SIP with lumpsum; for open-ended wealth goals, SIP alone is typically sufficient.</p>
+      </div>
+      <div class="calc-result">
+        <div class="figure is-primary"><span class="l">Target corpus</span><span class="v" data-out="total">—</span></div>
+        <div class="figure"><span class="l">Required monthly SIP</span><span class="v" data-out="sip">—</span></div>
+        <div class="figure"><span class="l">Or one-time lumpsum today</span><span class="v" data-out="lumpsum">—</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SGB projection -->
+<section id="sgb">
+  <div class="container">
+    <div class="section-intro reveal" style="margin-bottom: var(--s-5);">
+      <div><span class="eyebrow">05 · Gold</span><h2>SGB 8-year Projection</h2></div>
+      <p class="sub">Sovereign Gold Bond cash flow: principal growth linked to gold price, plus the fixed 2.5% p.a. interest coupon paid on the initial investment for the full 8 years.</p>
+    </div>
+
+    <div class="calc reveal" data-calc="sgb">
+      <div class="calc-inputs">
+        <div class="calc-field" data-field="grams"><label>Grams subscribed <span class="v">10 g</span></label><input type="range" min="1" max="100" step="1" /></div>
+        <div class="calc-field" data-field="price"><label>Issue price (per gram) <span class="v">₹9,200</span></label><input type="range" min="4000" max="12000" step="50" /></div>
+        <div class="calc-field" data-field="cagr"><label>Assumed gold CAGR <span class="v">8%</span></label><input type="range" min="2" max="15" step="0.5" /></div>
+
+        <div class="warn-banner is-info" style="margin-top: var(--s-5);">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M11 7 V12 M11 15 V15.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <div>
+            <strong>Tax-free scenario.</strong>
+            Capital gain is assumed fully tax-exempt (original subscriber, held to 8-year maturity). Interest coupon is taxable at slab rate — add that reduction if you want a post-tax view.
+          </div>
+        </div>
+      </div>
+      <div class="calc-result">
+        <div class="figure"><span class="l">Initial investment</span><span class="v" data-out="principal">—</span></div>
+        <div class="figure"><span class="l">Interest over 8 years (2.5% p.a.)</span><span class="v" data-out="interest">—</span></div>
+        <div class="figure"><span class="l">Capital appreciation</span><span class="v" data-out="capital">—</span></div>
+        <div class="figure is-primary"><span class="l">Total proceeds at maturity</span><span class="v" data-out="maturity">—</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Regular vs direct -->
+<section id="compare" class="section-bone2">
+  <div class="container">
+    <div class="section-intro reveal" style="margin-bottom: var(--s-5);">
+      <div><span class="eyebrow">06 · Disclosure</span><h2>Regular vs Direct</h2></div>
+      <p class="sub">The most honest calculator on this page. The TER differential between regular and direct plans of the same scheme compounds — over 20 years on a ₹10 L portfolio, it can reach a meaningful sum. We distribute regular plans and we want you to see what that costs.</p>
+    </div>
+
+    <div class="compare-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Scenario</th><th>Direct plan</th><th>Regular plan (via us)</th><th>Differential over 20 years</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>₹5 L one-time, flexi-cap, 12% / 11.2% net</td>
+            <td class="mono">₹48.2 L</td>
+            <td class="mono">₹42.1 L</td>
+            <td class="mono" style="color: var(--rust);">− ₹6.1 L</td>
+          </tr>
+          <tr>
+            <td>₹20,000/mo SIP, flexi-cap, 12% / 11.2% net</td>
+            <td class="mono">₹1.99 Cr</td>
+            <td class="mono">₹1.83 Cr</td>
+            <td class="mono" style="color: var(--rust);">− ₹16.1 L</td>
+          </tr>
+          <tr>
+            <td>₹10 L one-time, debt fund, 8% / 7.5% net</td>
+            <td class="mono">₹46.6 L</td>
+            <td class="mono">₹42.5 L</td>
+            <td class="mono" style="color: var(--rust);">− ₹4.1 L</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small text-soft mt-4 reveal"><em>Illustrative. Actual TER differential varies by AMC and category — ranging from 25 bps (debt) to 100 bps (small-cap equity). If you value self-research and can sustain review discipline for 20 years, direct plans with a SEBI RIA partnership may be the better choice. We are happy to introduce you.</em></p>
+
+    <div class="grid grid-2 mt-6 reveal">
+      <div class="card">
+        <h3>What you get in a regular plan with us</h3>
+        <ul style="padding-left: 20px; color: var(--text-muted); line-height: 1.8; margin: 0;">
+          <li>Scheme shortlisting from a 7-screen universe</li>
+          <li>SIP / STP / SWP execution &amp; mandate management</li>
+          <li>Quarterly portfolio review with written notes</li>
+          <li>Maturity calendars, capital gains summary, tax extracts</li>
+          <li>Grievance handling and issuer-side escalation</li>
+          <li>A named RM you can call before 6pm</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>When to choose direct with a flat-fee RIA</h3>
+        <ul style="padding-left: 20px; color: var(--text-muted); line-height: 1.8; margin: 0;">
+          <li>Portfolio above ₹1 Cr (fee leverage improves)</li>
+          <li>Willingness to research scheme fundamentals yourself</li>
+          <li>Preference for one-time fee over ongoing TER drag</li>
+          <li>Low service intensity required</li>
+          <li>Clear separation between advisory and distribution desired</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-dark">
+  <div class="container">
+    <div class="row-between reveal">
+      <div style="max-width: 60ch;"><span class="eyebrow">Ready for a plan?</span><h2 class="mt-3">A calculator says what's possible. A call says what's prudent.</h2><p class="mt-4" style="color: rgba(247,243,234,0.78);">The numbers on this page are arithmetic. Turning them into a deployment plan — with scheme selection, tax structuring and household priorities — is what the desk does.</p></div>
+      <div style="display: flex; flex-direction: column; gap: var(--s-3);"><a href="contact.html#callback" class="btn btn-gold btn-lg">Book a 20-min call <span class="arrow">→</span></a></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand" style="color: var(--text-invert);"><span class="mark"><svg viewBox="0 0 34 34" fill="none"><rect x="1" y="1" width="32" height="32" rx="4" stroke="#E5DFCD" stroke-width="1.4"/><path d="M8 24 L15 10 L22 24 M10.6 19 H19.4" stroke="#B48A37" stroke-width="1.6" stroke-linecap="round"/></svg></span><span class="brand-meta"><span>AnvithBizCap</span><span class="tag" style="color: rgba(247,243,234,0.5);">Wealth Distribution · est. 2019</span></span></div>
+        <p class="mt-4">AnvithBizCap is an <strong style="color: var(--gold-2);">AMFI-registered Mutual Fund Distributor</strong>.</p>
+        <address style="font-style: normal; color: rgba(247,243,234,0.6); font-size: var(--fs-100); margin-top: var(--s-4);">2nd floor, Prestige Meridian II<br/>30 M.G. Road, Bengaluru 560001<br/><a href="tel:+918040000000">+91 80 4000 0000</a> · <a href="mailto:desk@anvithbizcap.in">desk@anvithbizcap.in</a></address>
+      </div>
+      <div><h5>Products</h5><ul><li><a href="mutual-funds.html">Mutual Funds</a></li><li><a href="bonds.html">Corporate Bonds</a></li><li><a href="fixed-deposits.html">Fixed Deposits</a></li><li><a href="sovereign-gold-bonds.html">Sovereign Gold Bonds</a></li><li><a href="specialized-investment-funds.html">Specialized Investment Funds</a></li><li><a href="corporate-treasury.html">Corporate Treasury</a></li></ul></div>
+      <div><h5>Resources</h5><ul><li><a href="tools.html">Calculators</a></li><li><a href="insights.html">Reading room</a></li><li><a href="about.html">About</a></li><li><a href="compliance.html#commission">Commission disclosure</a></li></ul></div>
+      <div><h5>Compliance</h5><ul><li><a href="compliance.html">Regulatory framework</a></li><li><a href="compliance.html#risk">Risk disclaimers</a></li><li><a href="compliance.html#grievance">Grievance &amp; ODR</a></li></ul></div>
+      <div><h5>Support</h5><ul><li><a href="contact.html">Contact desk</a></li><li><a href="contact.html#callback">Book a callback</a></li></ul></div>
+    </div>
+    <div class="footer-disclosures">
+      <p class="amfi-line">AMFI-registered Mutual Fund Distributor · ARN-187432 · EUIN E-338207</p>
+      <p><strong>Calculators on this page are illustrative only.</strong> Outputs are projections based on user-entered assumptions (return rate, horizon, contribution amount) and do not constitute investment advice or a guarantee. Mutual fund investments are subject to market risks — read all scheme-related documents carefully before investing. NBFC fixed deposits are not insured. Past performance is not an indicator of future returns.</p>
+    </div>
+    <div class="footer-strip"><span>© <span data-year></span> AnvithBizCap Private Limited · CIN: U66190KA2019PTC123456</span><span>Designed in Bengaluru</span></div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+<script src="assets/js/calculators.js" defer></script>
+</body>
+</html>

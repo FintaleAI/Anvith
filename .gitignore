@@ -1,0 +1,35 @@
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+npm-debug.log*
+
+# Env / secrets (never commit)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+deploy_key
+deploy_key.pub
+
+# Build artefacts (not used here, but reserve names)
+dist/
+build/
+node_modules/
+.cache/
+
+# Local dev server
+.devserver/
