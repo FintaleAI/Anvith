@@ -1,5 +1,5 @@
 /* AnvithBizCap — main.js
-   Navigation, scroll reveal, counters, mega-menu, ticker fallback.
+   Navigation, scroll reveal, counters, mega-menu.
    All animations respect prefers-reduced-motion.
 */
 (function () {
@@ -141,13 +141,6 @@
       });
     });
   }
-
-  // ---------- Ticker: duplicate rail for seamless loop ----------
-  document.querySelectorAll('.ticker-rail').forEach((rail) => {
-    const clone = rail.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    rail.parentNode.appendChild(clone);
-  });
 
   // ---------- Smooth anchor scroll with offset ----------
   document.querySelectorAll('a[href^="#"]').forEach((a) => {

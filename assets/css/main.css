@@ -87,7 +87,7 @@
   --container-narrow: 960px;
   --container-editorial: 760px;
   --nav-h: 72px;
-  --ticker-h: 34px;
+  --ticker-h: 0px; /* kept for inline-style backwards compat; ticker removed */
 }
 
 /* -----------------------------
@@ -194,46 +194,8 @@ section { position: relative; padding-block: clamp(60px, 9vw, 130px); }
 .divider-strong { height: 1px; background: var(--line-strong); margin-block: var(--s-6); border: 0; }
 
 /* -----------------------------
-   5. Ticker bar (top strip)
+   5. (removed) Ticker bar — replaced with header-only layout
    ----------------------------- */
-.ticker {
-  background: var(--ink);
-  color: var(--text-invert);
-  font-family: var(--font-mono);
-  font-size: var(--fs-75);
-  letter-spacing: 0.04em;
-  height: var(--ticker-h);
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  border-bottom: 1px solid rgba(247,243,234,0.08);
-  position: relative;
-  z-index: 50;
-}
-.ticker-rail {
-  display: flex;
-  gap: var(--s-7);
-  animation: ticker-slide 55s linear infinite;
-  white-space: nowrap;
-  padding-right: var(--s-7);
-}
-.ticker-rail:hover { animation-play-state: paused; }
-.ticker-item {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--s-2);
-  opacity: 0.88;
-}
-.ticker-item .label { color: var(--gold-2); }
-.ticker-item .val { color: var(--text-invert); }
-.ticker-item .delta.up { color: #6CC49A; }
-.ticker-item .delta.down { color: #E08867; }
-.ticker-item .delta::before { content: "▲"; font-size: 9px; margin-right: 2px; }
-.ticker-item .delta.down::before { content: "▼"; }
-@keyframes ticker-slide {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
 
 /* -----------------------------
    6. Nav / header
@@ -816,7 +778,6 @@ li.is-open .mega { opacity: 1; pointer-events: auto; transform: translateX(-50%)
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; }
   .hero-viz .legend { opacity: 1; animation: none; }
-  .ticker-rail { animation: none; }
   * { transition-duration: 1ms !important; animation-duration: 1ms !important; }
 }
 
