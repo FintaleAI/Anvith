@@ -16,14 +16,14 @@
 set -euo pipefail
 
 # ─────────────────────────────────────────────
-# CONFIG — EDIT THESE FIVE LINES
+# CONFIG — pre-filled for AnvithBizCap on Hostinger
 # ─────────────────────────────────────────────
 DEPLOY_USER="deploy"                       # SSH user for deploys
-DOMAIN="anvithbizcap.in"                   # your domain
-WWW_DOMAIN="www.anvithbizcap.in"           # www alias (optional)
-ADMIN_EMAIL="admin@anvithbizcap.in"        # for Let's Encrypt
-WEB_ROOT="/var/www/anvithbizcap"           # where the site lives
-ENABLE_BARE_REPO=false                     # set true for Option B (git push deploy)
+DOMAIN="anvithbizcap.com"                  # registered via Hostinger
+WWW_DOMAIN="www.anvithbizcap.com"
+ADMIN_EMAIL="desk@anvithbizcap.com"        # change if you prefer
+WEB_ROOT="/var/www/anvithbizcap"
+ENABLE_BARE_REPO=true                      # Option B — git push production main
 # ─────────────────────────────────────────────
 
 log() { printf "\n\033[1;36m▶ %s\033[0m\n" "$*"; }
