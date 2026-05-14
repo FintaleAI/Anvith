@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+# Production post-receive hook for the AnvithBizCap Next.js app.
+# Install at: /root/repos/anvithbizcap.git/hooks/post-receive
+#
+# Performs zero-touch deploy:
+#   1. checkout source → /var/www/anvithbizcap
+#   2. npm ci (clean, reproducible install incl. devDeps for build)
+#   3. prisma generate + migrate deploy (idempotent)
+#   4. next build
+#   5. pm2 reload (zero-downtime restart)
+#
+# Production env vars come from /root/anvithbizcap-website.env (gitignored).
+# Production DB lives at /var/lib/anvithbizcap/prod.db (outside the deploy tree).
+
+set -euo pipefail
+
+GIT_DIR="/root/repos/anvithbizcap.git"
+TARGET="/var/www/anvithbizcap"
+ENV_FILE="/root/anvithbizcap-website.env"
+PM2_NAME="anvithbizcap-website"
+
+while read -r old new ref; do
+  branch=$(git rev-parse --symbolic --abbrev-ref "$ref")
+  if [[ "$branch" != "main" ]]; then
+    continue
+  fi
+  echo "▶ Deploying ${branch} (${new:0:8}) → ${TARGET}"
+
+  # 1. Sync source into the working directory
+  mkdir -p "$TARGET"
+  GIT_WORK_TREE="$TARGET" git --git-dir="$GIT_DIR" checkout -f main
+
+  # 2. Source production env so npm scripts and prisma see DATABASE_URL etc.
+  if [[ ! -f "$ENV_FILE" ]]; then
+    echo "✗ Missing $ENV_FILE — bootstrap incomplete. See deploy/post-receive header."
+    exit 1
+  fi
+  set -a
+  # shellcheck disable=SC1090
+  source "$ENV_FILE"
+  set +a
+
+  cd "$TARGET"
+
+  # 3. Install (locked) — include devDeps; Next.js build needs them
+  echo "▶ npm ci"
+  npm ci --include=dev --no-audit --no-fund --prefer-offline
+
+  # 4. Prisma — generate client, then apply any new migrations
+  echo "▶ prisma generate"
+  npx --yes prisma generate
+  echo "▶ prisma migrate deploy"
+  npx --yes prisma migrate deploy
+
+  # 5. Build .next/
+  echo "▶ next build"
+  NODE_OPTIONS="--max-old-space-size=2048" npm run build
+
+  # 6. Reload PM2 process (zero-downtime) — start it if it isn't there yet
+  if pm2 describe "$PM2_NAME" >/dev/null 2>&1; then
+    echo "▶ pm2 reload $PM2_NAME"
+    pm2 reload "$PM2_NAME" --update-env
+  else
+    echo "▶ pm2 start $PM2_NAME (first run)"
+    pm2 start npm --name "$PM2_NAME" --update-env -- run start
+    pm2 save
+  fi
+
+  # 7. Sanity-check the process is still up after reload
+  sleep 2
+  if ! pm2 describe "$PM2_NAME" >/dev/null 2>&1 \
+       || [[ "$(pm2 jlist | jq -r --arg n "$PM2_NAME" '.[] | select(.name==$n) | .pm2_env.status' 2>/dev/null || echo unknown)" == "errored" ]]; then
+    echo "✗ PM2 process is not healthy after reload — check pm2 logs $PM2_NAME"
+    exit 1
+  fi
+
+  echo "✓ Deploy complete (${new})"
+done
