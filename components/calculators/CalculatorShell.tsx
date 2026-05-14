@@ -429,7 +429,7 @@ export function FDCalculator() {
                 <Pie data={chartData} cx="50%" cy="50%" innerRadius={45} outerRadius={75} dataKey="value" paddingAngle={2}>
                   {chartData.map((_, i) => <Cell key={i} fill={COLORS[i % COLORS.length]} />)}
                 </Pie>
-                <Tooltip formatter={(v: number) => `₹${formatNumber(v)}`} />
+                <Tooltip formatter={(v) => `₹${formatNumber(Number(v))}`} />
               </PieChart>
             </ResponsiveContainer>
             <div className="mt-4 space-y-2">
@@ -712,7 +712,7 @@ function CalcLayout({
               <Pie data={chartData} cx="50%" cy="50%" innerRadius={45} outerRadius={75} dataKey="value" paddingAngle={2}>
                 {chartData.map((_, i) => <Cell key={i} fill={chartColors[i % chartColors.length]} />)}
               </Pie>
-              <Tooltip formatter={(v: number) => `₹${formatNumber(v)}`} />
+              <Tooltip formatter={(v) => `₹${formatNumber(Number(v))}`} />
             </PieChart>
           </ResponsiveContainer>
           <div className="mt-4 space-y-2">

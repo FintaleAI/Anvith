@@ -97,7 +97,7 @@ export default function AdminGuidePage() {
       </Section>
 
       {/* Dashboard */}
-      <Section icon={Globe, } title="Dashboard Overview" color="bg-gray-50 text-gray-800">
+      <Section icon={Globe} title="Dashboard Overview" color="bg-gray-50 text-gray-800">
         <p>The <strong>Dashboard</strong> is your home screen. It shows:</p>
         <ul className="space-y-2 ml-4">
           {[

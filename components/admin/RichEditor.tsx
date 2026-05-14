@@ -64,7 +64,7 @@ export default function RichEditor({ value, onChange, placeholder = "Start writi
   // Sync external value changes (e.g. when loading existing content)
   useEffect(() => {
     if (editor && value !== editor.getHTML()) {
-      editor.commands.setContent(value || "", false);
+      editor.commands.setContent(value || "", { emitUpdate: false });
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value === "" ? value : null, editor]);
