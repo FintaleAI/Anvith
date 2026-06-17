@@ -5,6 +5,10 @@ import { formatDate } from "@/lib/utils";
 import { BookOpen, ArrowRight } from "lucide-react";
 import SectionHeader from "@/components/ui/SectionHeader";
 
+// Server-render on every request so admin-published posts appear immediately.
+// Without this, the route is prerendered at build time with an empty DB.
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Blog — Investor Awareness, Mutual Funds, Financial Planning",
   description: "Read articles on mutual funds, SIP planning, tax saving, market updates, and more from the AnvithBizCap team.",

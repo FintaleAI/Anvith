@@ -1,7 +1,15 @@
 import { NextRequest } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/db";
 import { getAdminSession } from "@/lib/auth";
 import { slugify } from "@/lib/utils";
+
+// Invalidate the public-facing routes that read from the Blog table.
+// Defensive against any future ISR / cache layer being added on top.
+function bustBlogCaches(slug?: string | null) {
+  revalidatePath("/blog");
+  if (slug) revalidatePath(`/blog/${slug}`);
+}
 
 export async function GET() {
   const session = await getAdminSession();
@@ -26,6 +34,7 @@ export async function POST(req: NextRequest) {
         publishedAt: published ? new Date() : null,
       },
     });
+    bustBlogCaches(blog.slug);
     return Response.json(blog, { status: 201 });
   } catch (err) {
     console.error(err);
@@ -47,6 +56,7 @@ export async function PUT(req: NextRequest) {
         publishedAt: published ? new Date() : null,
       },
     });
+    bustBlogCaches(blog.slug);
     return Response.json(blog);
   } catch (err) {
     console.error(err);
@@ -60,6 +70,7 @@ export async function DELETE(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const id = searchParams.get("id");
   if (!id) return Response.json({ error: "ID required" }, { status: 400 });
-  await prisma.blog.delete({ where: { id: Number(id) } });
+  const deleted = await prisma.blog.delete({ where: { id: Number(id) } });
+  bustBlogCaches(deleted.slug);
   return Response.json({ success: true });
 }

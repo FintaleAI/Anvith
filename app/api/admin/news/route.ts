@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/db";
 import { getAdminSession } from "@/lib/auth";
 
@@ -24,6 +25,7 @@ export async function POST(req: NextRequest) {
         publishedAt: published ? new Date() : null,
       },
     });
+    revalidatePath("/news");
     return Response.json(item, { status: 201 });
   } catch (err) {
     console.error(err);
@@ -45,6 +47,7 @@ export async function PUT(req: NextRequest) {
         publishedAt: published ? new Date() : null,
       },
     });
+    revalidatePath("/news");
     return Response.json(item);
   } catch (err) {
     console.error(err);
@@ -59,5 +62,6 @@ export async function DELETE(req: NextRequest) {
   const id = searchParams.get("id");
   if (!id) return Response.json({ error: "ID required" }, { status: 400 });
   await prisma.news.delete({ where: { id: Number(id) } });
+  revalidatePath("/news");
   return Response.json({ success: true });
 }

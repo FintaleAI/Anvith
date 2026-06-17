@@ -3,6 +3,9 @@ import { prisma } from "@/lib/db";
 import { formatDate } from "@/lib/utils";
 import { Newspaper, ExternalLink } from "lucide-react";
 
+// Server-render on every request so admin-published news items appear immediately.
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Market News & Economy Updates",
   description: "Stay updated with the latest news on Indian economy, mutual funds, RBI policy, interest rates, and financial markets.",

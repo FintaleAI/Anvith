@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { revalidatePath } from "next/cache";
 import { prisma } from "@/lib/db";
 import { getAdminSession } from "@/lib/auth";
 import * as XLSX from "xlsx";
@@ -78,6 +79,7 @@ export async function POST(req: NextRequest) {
       }),
     ]);
 
+    revalidatePath("/mf-finder");
     return Response.json({ success: true, count: schemes.length });
   } catch (err) {
     console.error("MF upload error:", err);

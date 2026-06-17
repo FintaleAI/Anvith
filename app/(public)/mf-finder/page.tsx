@@ -2,6 +2,9 @@ import type { Metadata } from "next";
 import { prisma } from "@/lib/db";
 import MFFinderClient from "./MFFinderClient";
 
+// Server-render on every request so admin-uploaded MF data appears immediately.
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Mutual Fund Scheme Finder — Filter 1,700+ Schemes",
   description: "Filter and compare 1,700+ mutual fund schemes by category, returns, expense ratio, NAV, AUM, risk level and more.",

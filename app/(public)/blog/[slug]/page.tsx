@@ -5,6 +5,9 @@ import { prisma } from "@/lib/db";
 import { formatDate } from "@/lib/utils";
 import { ArrowLeft, User, Calendar, Tag } from "lucide-react";
 
+// Server-render on every request so admin edits + new posts appear immediately.
+export const dynamic = "force-dynamic";
+
 interface Props {
   params: Promise<{ slug: string }>;
 }
